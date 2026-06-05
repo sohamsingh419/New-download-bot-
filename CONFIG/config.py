@@ -57,16 +57,16 @@ class Config(object):
     PLAYLIST_CACHE_DB_PATH = f"bot/video_cache/playlists"
     IMAGE_CACHE_DB_PATH = f"bot/video_cache/images"
     # Firebase Config - only needed if USE_FIREBASE=true
-    FIREBASE_USER = os.environ.get("FIREBASE_USER", "")
-    FIREBASE_PASSWORD = os.environ.get("FIREBASE_PASSWORD", "")
+    FIREBASE_USER = os.environ.get("FIREBASE_USER", "false")
+    FIREBASE_PASSWORD = os.environ.get("FIREBASE_PASSWORD", "false")
     FIREBASE_CONF = {
-        "apiKey": os.environ.get("FIREBASE_API_KEY", ""),
-        "authDomain": os.environ.get("FIREBASE_AUTH_DOMAIN", ""),
-        "projectId": os.environ.get("FIREBASE_PROJECT_ID", ""),
-        "storageBucket": os.environ.get("FIREBASE_STORAGE_BUCKET", ""),
-        "messagingSenderId": os.environ.get("FIREBASE_MESSAGING_SENDER_ID", ""),
-        "appId": os.environ.get("FIREBASE_APP_ID", ""),
-        "databaseURL": os.environ.get("FIREBASE_DATABASE_URL", "")
+        "apiKey": os.environ.get("FIREBASE_API_KEY", "false"),
+        "authDomain": os.environ.get("FIREBASE_AUTH_DOMAIN", "false"),
+        "projectId": os.environ.get("FIREBASE_PROJECT_ID", "false"),
+        "storageBucket": os.environ.get("FIREBASE_STORAGE_BUCKET", "false"),
+        "messagingSenderId": os.environ.get("FIREBASE_MESSAGING_SENDER_ID", "false"),
+        "appId": os.environ.get("FIREBASE_APP_ID", "false"),
+        "databaseURL": os.environ.get("FIREBASE_DATABASE_URL", "false")
     }
 
     #######################################################
