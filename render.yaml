@@ -1,0 +1,26 @@
+services:
+  - type: worker
+    name: tg-ytdlp-bot
+    runtime: python
+    plan: standard
+    buildCommand: |
+      apt-get update && apt-get install -y --no-install-recommends ffmpeg mediainfo fonts-noto-core fonts-noto-color-emoji fontconfig libass9 && rm -rf /var/lib/apt/lists/*
+      pip install -r requirements.txt
+    startCommand: bash start.sh
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: BOT_NAME
+        sync: false
+      - key: BOT_NAME_FOR_USERS
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: USE_FIREBASE
+        value: "false"

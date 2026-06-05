@@ -1,0 +1,60 @@
+# Core Telegram Bot - Pyrogram fork (actively maintained)
+pyrotgfork
+
+# Async HTTP
+aiohttp
+aiofiles
+
+# HTTP requests
+requests<3,>=2.8.1
+
+# Web framework (needed by services module)
+fastapi
+uvicorn[standard]
+
+# Template engine
+jinja2
+
+# Multipart form handling
+python-multipart
+
+# System utilities
+psutil
+
+# Telegram crypto
+TgCrypto>=1.2.5
+
+# Video processing
+moviepy==1.0.3
+
+# Domain extraction
+tldextract
+
+# Image processing
+pillow
+
+# Character encoding detection
+chardet
+
+# Firebase (optional - only if USE_FIREBASE=true)
+firebase-admin
+
+# yt-dlp dependencies
+# PO Token provider for YouTube
+bgutil-ytdlp-pot-provider
+
+# URL handling
+urllib3
+
+# Compression
+brotlicffi>=1.2.0.0
+
+# yt-dlp with curl_cffi support
+--pre
+yt-dlp[default,curl-cffi]
+
+# curl_cffi for browser impersonation
+curl_cffi>=0.6.0
+
+# Image gallery downloader
+gallery-dl
