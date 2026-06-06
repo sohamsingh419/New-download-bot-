@@ -39,9 +39,9 @@ class Config(object):
     LOGS_PAID_ID = -100111111111111  # Channel ID for paid media logs
     LOG_EXCEPTION = -100111111111111  # Channel ID for exception logs
     # Channel ID to subscribe to
-    SUBSCRIBE_CHANNEL = -100222222222222222222
+    SUBSCRIBE_CHANNEL = -1003635910925
     # Add subscription channel - Required (str)
-    SUBSCRIBE_CHANNEL_URL = "https://t.me/+abcdef"
+    SUBSCRIBE_CHANNEL_URL = "https://t.me/Globall_X"
     # Session string пользователя для чтения admin logs канала (опционально)
     # Боты не могут читать admin logs, поэтому нужна пользовательская сессия
     # Для генерации session string запустите: python generate_session_string.py
