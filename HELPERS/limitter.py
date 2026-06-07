@@ -133,15 +133,18 @@ def is_user_in_channel(app, message):
 
     except Exception as e:
         logger.error(LoggerMsg.LIMITTER_CHANNEL_CHECK_ERROR_LOG_MSG.format(user_id=message.chat.id, error=e))
-        # FIX: Send only subscription message without CREDITS_MSG and language keyboard
-        text = f"{safe_get_messages(message.chat.id).TO_USE_MSG}"
-
-        # Only channel join button, no language selection
-        keyboard = InlineKeyboardMarkup([[
-            InlineKeyboardButton(
-                safe_get_messages(message.chat.id).CHANNEL_JOIN_BUTTON_MSG, url=Config.SUBSCRIBE_CHANNEL_URL)
-        ]])
-
+        text = f"{safe_get_messages(message.chat.id).TO_USE_MSG}\n \n{safe_get_messages(message.chat.id).CREDITS_MSG}"
+        
+        # Create keyboard with channel join button and language selection
+        channel_button = InlineKeyboardButton(
+            safe_get_messages(message.chat.id).CHANNEL_JOIN_BUTTON_MSG, url=Config.SUBSCRIBE_CHANNEL_URL)
+        language_keyboard = create_language_keyboard()
+        
+        # Combine channel button with language buttons
+        keyboard_buttons = [[channel_button]]
+        keyboard_buttons.extend(language_keyboard.inline_keyboard)
+        keyboard = InlineKeyboardMarkup(keyboard_buttons)
+        
         # Use safe send to avoid FloodWait on texts
         safe_send_message(
             chat_id=message.chat.id,
@@ -149,17 +152,20 @@ def is_user_in_channel(app, message):
             reply_markup=keyboard
         )
         return False
-
+    
     # If user is not a member, send subscription message
-    # FIX: Send only subscription message without CREDITS_MSG and language keyboard
-    text = f"{safe_get_messages(message.chat.id).TO_USE_MSG}"
-
-    # Only channel join button, no language selection
-    keyboard = InlineKeyboardMarkup([[
-        InlineKeyboardButton(
-            safe_get_messages(message.chat.id).CHANNEL_JOIN_BUTTON_MSG, url=Config.SUBSCRIBE_CHANNEL_URL)
-    ]])
-
+    text = f"{safe_get_messages(message.chat.id).TO_USE_MSG}\n \n{safe_get_messages(message.chat.id).CREDITS_MSG}"
+    
+    # Create keyboard with channel join button and language selection
+    channel_button = InlineKeyboardButton(
+        safe_get_messages(message.chat.id).CHANNEL_JOIN_BUTTON_MSG, url=Config.SUBSCRIBE_CHANNEL_URL)
+    language_keyboard = create_language_keyboard()
+    
+    # Combine channel button with language buttons
+    keyboard_buttons = [[channel_button]]
+    keyboard_buttons.extend(language_keyboard.inline_keyboard)
+    keyboard = InlineKeyboardMarkup(keyboard_buttons)
+    
     # Use safe send to avoid FloodWait on texts
     safe_send_message(
         chat_id=message.chat.id,
