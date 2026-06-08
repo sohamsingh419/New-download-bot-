@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>Керується</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 Змінити мову: /lang</b>"
-    TO_USE_MSG = "<i>Щоб використовувати цього бота, вам потрібно підписатися на канал Telegram @tg_ytdlp.</i>\nПісля того, як ви приєднаєтеся до каналу, <b>надішліть знову ваше посилання на відео, і бот завантажить його для вас</b> ❤️\n\n<blockquote>P.S. Завантаження 🔞NSFW контенту та файлів з ☁️Cloud Storage платне! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Не покидайте канал - вас забанять від використання бота ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>Керується</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 Змінити мову: /lang</b>"
+    TO_USE_MSG = "<i>Щоб використовувати цього бота, вам потрібно підписатися на канал Telegram @Globall_X.</i>\nПісля того, як ви приєднаєтеся до каналу, <b>надішліть знову ваше посилання на відео, і бот завантажить його для вас</b> ❤️\n\n<blockquote>P.S. Завантаження 🔞NSFW контенту та файлів з ☁️Cloud Storage платне! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Не покидайте канал - вас забанять від використання бота ⛔️</blockquote>"
 
     ERROR1 = "Посилання URL не знайдено. Будь ласка, введіть URL з <b>https://</b> або <b>http://</b>"
 
@@ -152,8 +152,8 @@ class Messages(object):
 • <code>/img 11-20 URL</code> → завантажити конкретний діапазон
 • <code>/img 11- URL</code> → завантажити з 11-го до кінця
 
-👨‍💻 <i>Розробник:</i> @upekshaip
-🤝 <i>Учасник:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>Розробник:</i> @Global_X_SohaN
+🤝 <i>Учасник:</i> @Global_X_HiM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ class Messages(object):
 ————————————
 💰 <b>Ціни та Налаштування:</b>
 <blockquote>• Ціна: <b>$5/місяць</b> за 1 бота в групі
-• Налаштування: Зв'яжіться з @iilililiiillliiliililliilliliiil
+• Налаштування: Зв'яжіться з @Global_X_SohaN
 • Оплата: 💎TON або інші методи💲
 • Підтримка: Повна технічна підтримка включена</blockquote>
 ————————————
 Ви можете додати моїх ботів до вашої групи, щоб розблокувати безкоштовний 🔞<b>NSFW</b> та подвоїти (x2️⃣) всі ліміти.
-Зв'яжіться зі мною, якщо хочете, щоб я дозволив вашій групі використовувати моїх ботів @iilililiiillliiliililliilliliiil
+Зв'яжіться зі мною, якщо хочете, щоб я дозволив вашій групі використовувати моїх ботів @Global_X_SohaN
 ————————————
 💡<b>ПОРАДА:</b> <blockquote>Ви можете зібрати гроші з будь-якою кількістю ваших друзів (наприклад, 100 осіб) і зробити 1 покупку для всієї групи - ВСІ УЧАСНИКИ ГРУПИ МАТИМУТЬ ПОВНИЙ НЕОБМЕЖЕНИЙ ДОСТУП до всіх функцій ботів у цій групі всього за <b>0.05$</b></blockquote>
     """
