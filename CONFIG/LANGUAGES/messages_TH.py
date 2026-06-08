@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>จัดการโดย</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 เปลี่ยนภาษา: /lang</b>"
-    TO_USE_MSG = "<i>เพื่อใช้บอทนี้คุณต้องสมัครสมาชิกช่อง Telegram @tg_ytdlp</i>\nหลังจากเข้าร่วมช่องแล้ว <b>ส่งลิงก์วิดีโอของคุณอีกครั้งและบอทจะดาวน์โหลดให้คุณ</b> ❤️\n\n<blockquote>P.S. การดาวน์โหลดเนื้อหา 🔞NSFW และไฟล์จาก ☁️Cloud Storage เป็นแบบเสียเงิน! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ อย่าออกจากช่อง - คุณจะถูกแบนจากการใช้บอท ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>จัดการโดย</i>  @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 เปลี่ยนภาษา: /lang</b>"
+    TO_USE_MSG = "<i>เพื่อใช้บอทนี้คุณต้องสมัครสมาชิกช่อง Telegram @Globall_X</i>\nหลังจากเข้าร่วมช่องแล้ว <b>ส่งลิงก์วิดีโอของคุณอีกครั้งและบอทจะดาวน์โหลดให้คุณ</b> ❤️\n\n<blockquote>P.S. การดาวน์โหลดเนื้อหา 🔞NSFW และไฟล์จาก ☁️Cloud Storage เป็นแบบเสียเงิน! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ อย่าออกจากช่อง - คุณจะถูกแบนจากการใช้บอท ⛔️</blockquote>"
 
     ERROR1 = "ไม่พบลิงก์ URL กรุณาใส่ URL ที่มี <b>https://</b> หรือ <b>http://</b>"
 
@@ -152,8 +152,8 @@ class Messages(object):
 • <code>/img 11-20 URL</code> → ดาวน์โหลดช่วงเฉพาะ
 • <code>/img 11- URL</code> → ดาวน์โหลดจากที่ 11 ถึงท้าย
 
-👨‍💻 <i>นักพัฒนา:</i> @upekshaip
-🤝 <i>ผู้มีส่วนร่วม:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>นักพัฒนา:</i> @Global_X_SohaN
+🤝 <i>ผู้มีส่วนร่วม:</i> @Global_X_HiM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ class Messages(object):
 ————————————
 💰 <b>ราคาและการตั้งค่า:</b>
 <blockquote>• ราคา: <b>$5/เดือน</b> ต่อ 1 บอทในกลุ่ม
-• การตั้งค่า: ติดต่อ @iilililiiillliiliililliilliliiil
+• การตั้งค่า: ติดต่อ @Global_X_SohaN
 • การชำระเงิน: 💎TON หรือวิธีอื่น💲
 • การสนับสนุน: การสนับสนุนทางเทคนิคเต็มรูปแบบรวมอยู่ด้วย</blockquote>
 ————————————
 คุณสามารถเพิ่มบอทของฉันเข้ากลุ่มของคุณเพื่อปลดล็อก 🔞<b>NSFW</b> ฟรีและเพิ่มขีดจำกัดทั้งหมดเป็นสองเท่า (x2️⃣)
-ติดต่อฉันหากคุณต้องการให้ฉันอนุญาตให้กลุ่มของคุณใช้บอทของฉัน @iilililiiillliiliililliilliliiil
+ติดต่อฉันหากคุณต้องการให้ฉันอนุญาตให้กลุ่มของคุณใช้บอทของฉัน @Global_X_SohaN
 ————————————
 💡<b>เคล็ดลับ:</b> <blockquote>คุณสามารถร่วมกันจ่ายเงินกับเพื่อนของคุณจำนวนเท่าใดก็ได้ (เช่น 100 คน) และทำการซื้อ 1 ครั้งสำหรับทั้งกลุ่ม - สมาชิกกลุ่มทั้งหมดจะมีการเข้าถึงแบบไม่จำกัดเต็มรูปแบบสำหรับฟังก์ชันบอททั้งหมดในกลุ่มนั้นเพียง <b>0.05$</b></blockquote>
     """
