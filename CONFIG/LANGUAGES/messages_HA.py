@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>Ana gudanar da shi ta</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 Canza harshe: /lang</b>"
-    TO_USE_MSG = "<i>Don amfani da wannan bot kuna buƙatar yin rajista zuwa tashar Telegram @tg_ytdlp.</i>\nBayan kun shiga tashar, <b>sake aika hanyar bidiyon ku kuma bot zai sauke shi gare ku</b> ❤️\n\n<blockquote>P.S. Saukewa 🔞NSFW abun ciki da fayiloli daga ☁️Cloud Storage ana biya! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Kada ku bar tashar - za a hana ku amfani da bot ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>Ana gudanar da shi ta</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 Canza harshe: /lang</b>"
+    TO_USE_MSG = "<i>Don amfani da wannan bot kuna buƙatar yin rajista zuwa tashar Telegram @Globall_X.</i>\nBayan kun shiga tashar, <b>sake aika hanyar bidiyon ku kuma bot zai sauke shi gare ku</b> ❤️\n\n<blockquote>P.S. Saukewa 🔞NSFW abun ciki da fayiloli daga ☁️Cloud Storage ana biya! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Kada ku bar tashar - za a hana ku amfani da bot ⛔️</blockquote>"
 
     ERROR1 = "Ba a sami hanyar url ba. Da fatan za a shigar da url tare da <b>https://</b> ko <b>http://</b>"
 
@@ -152,8 +152,8 @@ Yi amfani da <code>/img URL</code> don sauke hotuna/hoto/kundin hotuna daga dand
 • <code>/img 11-20 URL</code> → sauke kewayon na musamman
 • <code>/img 11- URL</code> → sauke daga na 11 zuwa ƙarshe
 
-👨‍💻 <i>Mai Haɓakawa:</i> @upekshaip
-🤝 <i>Mai Ba da Gudummawa:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>Mai Haɓakawa:</i> @Global_X_SohaN
+🤝 <i>Mai Ba da Gudummawa:</i> @Global_X_HIM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ Danna maɓallin da ke ƙasa don kunna bincike na cikin layi ta hanyar @vid.
 ————————————
 💰 <b>Farashi & Saitawa:</b>
 <blockquote>• Farashi: <b>$5/wata</b> don kowane bot 1 a cikin ƙungiya
-• Saitawa: Tuntuɓi @iilililiiillliiliililliilliliiil
+• Saitawa: Tuntuɓi @Global_X_SohaN
 • Biyan kuɗi: 💎TON ko wasu hanyoyi💲
 • Taimako: Cikakken tallafin fasaha ya haɗa</blockquote>
 ————————————
 Zaka iya ƙara bots dina zuwa ƙungiyar ku don buɗe kyauta 🔞<b>NSFW</b> kuma don ninka (x2️⃣) duk iyakoki.
-Tuntuɓe ni idan kana son in ba ƙungiyar ku damar amfani da bots dina @iilililiiillliiliililliilliliiil
+Tuntuɓe ni idan kana son in ba ƙungiyar ku damar amfani da bots dina @Global_X_SohaN
 ————————————
 💡<b>SHAWARA:</b> <blockquote>Zaka iya ba da kuɗi tare da kowane adadin abokanka (misali mutane 100) kuma ka yi siyayya 1 don dukan ƙungiya - DUK MEMBONIN ƘUNGIYA ZA SU SAMI CIKAKKIYAR DAMAR BA IYAKA ga duk ayyukan bots a cikin wannan ƙungiya don kawai <b>$0.05</b></blockquote>
     """
