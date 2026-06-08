@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>পরিচালিত</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 ভাষা পরিবর্তন করুন: /lang</b>"
-    TO_USE_MSG = "<i>এই বট ব্যবহার করতে আপনাকে @tg_ytdlp Telegram চ্যানেলে সাবস্ক্রাইব করতে হবে।</i>\nচ্যানেলে যোগদানের পর, <b>আপনার ভিডিও লিঙ্কটি আবার পাঠান এবং বট এটি আপনার জন্য ডাউনলোড করবে</b> ❤️\n\n<blockquote>P.S. 🔞NSFW কন্টেন্ট এবং ☁️ক্লাউড স্টোরেজ থেকে ফাইল ডাউনলোড করা অর্থপ্রদানযোগ্য! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ চ্যানেল ছেড়ে যাবেন না - আপনি বট ব্যবহার থেকে নিষিদ্ধ হবেন ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>পরিচালিত</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 ভাষা পরিবর্তন করুন: /lang</b>"
+    TO_USE_MSG = "<i>এই বট ব্যবহার করতে আপনাকে @Globall_X Telegram চ্যানেলে সাবস্ক্রাইব করতে হবে।</i>\nচ্যানেলে যোগদানের পর, <b>আপনার ভিডিও লিঙ্কটি আবার পাঠান এবং বট এটি আপনার জন্য ডাউনলোড করবে</b> ❤️\n\n<blockquote>P.S. 🔞NSFW কন্টেন্ট এবং ☁️ক্লাউড স্টোরেজ থেকে ফাইল ডাউনলোড করা অর্থপ্রদানযোগ্য! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ চ্যানেল ছেড়ে যাবেন না - আপনি বট ব্যবহার থেকে নিষিদ্ধ হবেন ⛔️</blockquote>"
 
     ERROR1 = "URL লিঙ্ক পাওয়া যায়নি। অনুগ্রহ করে <b>https://</b> বা <b>http://</b> সহ একটি URL লিখুন"
 
@@ -152,8 +152,8 @@ class Messages(object):
 • <code>/img 11-20 URL</code> → নির্দিষ্ট রেঞ্জ ডাউনলোড করুন
 • <code>/img 11- URL</code> → 11তম থেকে শেষ পর্যন্ত ডাউনলোড করুন
 
-👨‍💻 <i>ডেভেলপার:</i> @upekshaip
-🤝 <i>অবদানকারী:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>ডেভেলপার:</i> @Global_X_SohaN
+🤝 <i>অবদানকারী:</i> @Global_X_HIM
 </blockquote>
     """
     
