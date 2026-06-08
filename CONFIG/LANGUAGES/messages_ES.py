@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>Administrado por</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 Cambiar idioma: /lang</b>"
-    TO_USE_MSG = "<i>Para usar este bot necesitas suscribirte al canal de Telegram @tg_ytdlp.</i>\nDespués de unirte al canal, <b>reenvía tu enlace de video nuevamente y el bot lo descargará para ti</b> ❤️\n\n<blockquote>P.S. ¡Descargar contenido 🔞NSFW y archivos de ☁️Almacenamiento en la Nube es de pago! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ No dejes el canal - serás baneado del uso del bot ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>Administrado por</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 Cambiar idioma: /lang</b>"
+    TO_USE_MSG = "<i>Para usar este bot necesitas suscribirte al canal de Telegram @Globall_X.</i>\nDespués de unirte al canal, <b>reenvía tu enlace de video nuevamente y el bot lo descargará para ti</b> ❤️\n\n<blockquote>P.S. ¡Descargar contenido 🔞NSFW y archivos de ☁️Almacenamiento en la Nube es de pago! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ No dejes el canal - serás baneado del uso del bot ⛔️</blockquote>"
 
     ERROR1 = "No se encontró un enlace URL. Por favor ingrese una URL con <b>https://</b> o <b>http://</b>"
 
@@ -152,8 +152,8 @@ Usa <code>/img URL</code> para descargar imágenes/fotos/álbumes de muchas plat
 • <code>/img 11-20 URL</code> → descargar rango específico
 • <code>/img 11- URL</code> → descargar desde el 11º hasta el final
 
-👨‍💻 <i>Desarrollador:</i> @upekshaip
-🤝 <i>Contribuidor:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>Desarrollador:</i> @Global_X_SohaN
+🤝 <i>Contribuidor:</i> @Global_X_HIM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ Add my bots to your groups to get enhanced features and higher limits!
 ————————————
 💰 <b>Pricing & Setup:</b>
 <blockquote>• Price: <b>$5/month</b> per 1 bot in group
-• Setup: Contact @iilililiiillliiliililliilliliiil
+• Setup: Contact @Global_X_SohaN
 • Payment: 💎TON or other methods💲
 • Support: Full technical support included</blockquote>
 ————————————
 You can add my bots to your group to unblock free 🔞<b>NSFW</b> and to double (x2️⃣) all limits.
-Contact me if you want me to allow your group to use my bots @iilililiiillliiliililliilliliiil
+Contact me if you want me to allow your group to use my bots @Global_X_SohaN
 ————————————
 💡<b>TIP:</b> <blockquote>You can chip in money with any amount of your friends (for example 100 people) and made 1 purchase for whole group - ALL GROUP MEMBERS WILL HAVE FULL UNLIMITED ACCESS to all bots functions in that group for just <b>0.05$</b></blockquote>
     """
