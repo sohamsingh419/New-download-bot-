@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>Басқарушы</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 Тілді өзгерту: /lang</b>"
-    TO_USE_MSG = "<i>Бұл ботты пайдалану үшін @tg_ytdlp Telegram арнасына жазылуыңыз керек.</i>\nАрнаға қосылғаннан кейін, <b>бейне сілтемеңізді қайта жіберіңіз, бот оны сіз үшін жүктейді</b> ❤️\n\n<blockquote>P.S. 🔞NSFW контентін және ☁️Cloud Storage-дан файлдарды жүктеу ақылы! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Арнадан шықпаңыз - ботты пайдаланудан тыйым салынасыз ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>Басқарушы</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 Тілді өзгерту: /lang</b>"
+    TO_USE_MSG = "<i>Бұл ботты пайдалану үшін @Globall_X Telegram арнасына жазылуыңыз керек.</i>\nАрнаға қосылғаннан кейін, <b>бейне сілтемеңізді қайта жіберіңіз, бот оны сіз үшін жүктейді</b> ❤️\n\n<blockquote>P.S. 🔞NSFW контентін және ☁️Cloud Storage-дан файлдарды жүктеу ақылы! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Арнадан шықпаңыз - ботты пайдаланудан тыйым салынасыз ⛔️</blockquote>"
 
     ERROR1 = "URL сілтемесі табылмады. <b>https://</b> немесе <b>http://</b> бар URL енгізіңіз"
 
@@ -152,8 +152,8 @@ class Messages(object):
 • <code>/img 11-20 URL</code> → нақты диапазонды жүктеу
 • <code>/img 11- URL</code> → 11-ден соңына дейін жүктеу
 
-👨‍💻 <i>Әзірлеуші:</i> @upekshaip
-🤝 <i>Үлес қосушы:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>Әзірлеуші:</i> @Global_X_SohaN
+🤝 <i>Үлес қосушы:</i> @Global_X_HIM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ class Messages(object):
 ————————————
 💰 <b>Баға және Орнату:</b>
 <blockquote>• Баға: <b>$5/ай</b> топтағы 1 бот үшін
-• Орнату: @iilililiiillliiliililliilliliiil-мен байланысыңыз
+• Орнату: @Global_X_SohaN-мен байланысыңыз
 • Төлем: 💎TON немесе басқа әдістер💲
 • Қолдау: Толық техникалық қолдау қосылған</blockquote>
 ————————————
 Сіз боттарымды топыңызға қосып, тегін 🔞<b>NSFW</b>-ді ашып, барлық лимиттерді екі есеге (x2️⃣) көбейте аласыз.
-Егер сіз топыңызға боттарымды пайдалануға рұқсат беруді қаласаңыз, маған хабарласыңыз @iilililiiillliiliililliilliliiil
+Егер сіз топыңызға боттарымды пайдалануға рұқсат беруді қаласаңыз, маған хабарласыңыз @Global_X_SohaN
 ————————————
 💡<b>КЕҢЕС:</b> <blockquote>Сіз достарыңызбен кез келген соманы (мысалы, 100 адам) жинап, бүкіл топ үшін 1 сатып алу жасай аласыз - ТОПТЫҢ БАРЛЫҚ МҮШЕЛЕРІ ОСЫ ТОПТАҒЫ БОТТЫҢ БАРЛЫҚ ФУНКЦИЯЛАРЫНА ТОЛЫҚ ШЕКСІЗ ҚОЛ ЖЕТКІЗЕ АЛАДЫ тек <b>0.05$</b> үшін</blockquote>
     """
