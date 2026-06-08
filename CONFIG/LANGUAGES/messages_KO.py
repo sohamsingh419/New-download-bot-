@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>관리자</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 언어 변경: /lang</b>"
-    TO_USE_MSG = "<i>이 봇을 사용하려면 @tg_ytdlp Telegram 채널에 구독해야 합니다.</i>\n채널에 가입한 후, <b>비디오 링크를 다시 보내시면 봇이 다운로드해 드립니다</b> ❤️\n\n<blockquote>P.S. 🔞NSFW 콘텐츠 및 ☁️클라우드 스토리지에서 파일 다운로드는 유료입니다! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ 채널을 떠나지 마세요 - 봇 사용이 금지됩니다 ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>관리자</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 언어 변경: /lang</b>"
+    TO_USE_MSG = "<i>이 봇을 사용하려면 @Globall_X Telegram 채널에 구독해야 합니다.</i>\n채널에 가입한 후, <b>비디오 링크를 다시 보내시면 봇이 다운로드해 드립니다</b> ❤️\n\n<blockquote>P.S. 🔞NSFW 콘텐츠 및 ☁️클라우드 스토리지에서 파일 다운로드는 유료입니다! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ 채널을 떠나지 마세요 - 봇 사용이 금지됩니다 ⛔️</blockquote>"
 
     ERROR1 = "URL 링크를 찾을 수 없습니다. <b>https://</b> 또는 <b>http://</b>가 포함된 URL을 입력하세요"
 
@@ -152,8 +152,8 @@ class Messages(object):
 • <code>/img 11-20 URL</code> → 특정 범위 다운로드
 • <code>/img 11- URL</code> → 11번째부터 끝까지 다운로드
 
-👨‍💻 <i>개발자:</i> @upekshaip
-🤝 <i>기여자:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>개발자:</i> @Global_X_SohaN
+🤝 <i>기여자:</i> @Global_X_HIM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ class Messages(object):
 ————————————
 💰 <b>가격 및 설정:</b>
 <blockquote>• 가격: <b>$5/월</b> 그룹당 1개 봇
-• 설정: @iilililiiillliiliililliilliliiil 연락
+• 설정: @Global_X_SohaN 연락
 • 결제: 💎TON 또는 기타 방법💲
 • 지원: 전체 기술 지원 포함</blockquote>
 ————————————
 그룹에 내 봇을 추가하여 무료 🔞<b>NSFW</b>를 차단 해제하고 모든 제한을 두 배로 늘릴 수 있습니다.
-그룹이 내 봇을 사용하도록 허용하려면 @iilililiiillliiliililliilliliiil로 연락하세요
+그룹이 내 봇을 사용하도록 허용하려면 @Global_X_SohaN로 연락하세요
 ————————————
 💡<b>팁:</b> <blockquote>친구들과 함께 어떤 금액이든 모금할 수 있습니다(예: 100명) 그리고 전체 그룹을 위해 1회 구매를 하면 - 모든 그룹 구성원이 해당 그룹의 모든 봇 기능에 완전 무제한 액세스를 갖게 됩니다 단 <b>$0.05</b>만으로</blockquote>
     """
