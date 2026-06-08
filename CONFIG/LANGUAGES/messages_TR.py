@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>Tarafından yönetiliyor</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 Dili değiştir: /lang</b>"
-    TO_USE_MSG = "<i>Bu botu kullanmak için @tg_ytdlp Telegram kanalına abone olmanız gerekir.</i>\nKanala katıldıktan sonra, <b>video bağlantınızı tekrar gönderin ve bot sizin için indirecektir</b> ❤️\n\n<blockquote>P.S. 🔞NSFW içeriği ve ☁️Cloud Storage'dan dosyaları indirmek ücretlidir! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Kanaldan ayrılmayın - bot kullanımından yasaklanırsınız ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>Tarafından yönetiliyor</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 Dili değiştir: /lang</b>"
+    TO_USE_MSG = "<i>Bu botu kullanmak için @Globall_X Telegram kanalına abone olmanız gerekir.</i>\nKanala katıldıktan sonra, <b>video bağlantınızı tekrar gönderin ve bot sizin için indirecektir</b> ❤️\n\n<blockquote>P.S. 🔞NSFW içeriği ve ☁️Cloud Storage'dan dosyaları indirmek ücretlidir! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Kanaldan ayrılmayın - bot kullanımından yasaklanırsınız ⛔️</blockquote>"
 
     ERROR1 = "URL bağlantısı bulunamadı. Lütfen <b>https://</b> veya <b>http://</b> ile bir URL girin"
 
@@ -152,8 +152,8 @@ Birçok platformdan görsel/fotoğraf/albüm indirmek için <code>/img URL</code
 • <code>/img 11-20 URL</code> → belirli aralığı indir
 • <code>/img 11- URL</code> → 11'den sona kadar indir
 
-👨‍💻 <i>Geliştirici:</i> @upekshaip
-🤝 <i>Katkıda Bulunan:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>Geliştirici:</i> @Global_X_SohaN
+🤝 <i>Katkıda Bulunan:</i> @Global_X_HiM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ Gelişmiş özellikler ve daha yüksek limitler için botlarımı gruplarınıza
 ————————————
 💰 <b>Fiyatlandırma ve Kurulum:</b>
 <blockquote>• Fiyat: <b>$5/ay</b> grupta 1 bot başına
-• Kurulum: @iilililiiillliiliililliilliliiil ile iletişime geçin
+• Kurulum: @Global_X_SohaN ile iletişime geçin
 • Ödeme: 💎TON veya diğer yöntemler💲
 • Destek: Tam teknik destek dahil</blockquote>
 ————————————
 Ücretsiz 🔞<b>NSFW</b>'yi açmak ve tüm limitleri ikiye katlamak (x2️⃣) için botlarımı grubunuza ekleyebilirsiniz.
-Grubunuzun botlarımı kullanmasına izin vermemi istiyorsanız benimle iletişime geçin @iilililiiillliiliililliilliliiil
+Grubunuzun botlarımı kullanmasına izin vermemi istiyorsanız benimle iletişime geçin @Global_X_SohaN
 ————————————
 💡<b>İPUCU:</b> <blockquote>Arkadaşlarınızla herhangi bir miktarda para toplayabilirsiniz (örneğin 100 kişi) ve tüm grup için 1 satın alma yapabilirsiniz - TÜM GRUP ÜYELERİ O GRUPTAKİ TÜM BOT İŞLEVLERİNE TAM SINIRSIZ ERİŞİME SAHİP OLACAKTIR sadece <b>$0.05</b> karşılığında</blockquote>
     """
