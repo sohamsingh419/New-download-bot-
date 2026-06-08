@@ -8,8 +8,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>प्रबंधित</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 भाषा बदलें: /lang</b>"
-    TO_USE_MSG = "<i>इस बॉट का उपयोग करने के लिए आपको @tg_ytdlp Telegram चैनल की सदस्यता लेनी होगी।</i>\nचैनल में शामिल होने के बाद, <b>अपना वीडियो लिंक फिर से भेजें और बॉट इसे आपके लिए डाउनलोड कर देगा</b> ❤️\n\n<blockquote>P.S. ☁️क्लाउड स्टोरेज से 🔞NSFW सामग्री और फाइल्स डाउनलोड करना भुगतान योग्य है! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ चैनल छोड़ने न करें - आपको बॉट का उपयोग करने से बाध्य होगा ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>प्रबंधित</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 भाषा बदलें: /lang</b>"
+    TO_USE_MSG = "<i>इस बॉट का उपयोग करने के लिए आपको @Globall_X Telegram चैनल की सदस्यता लेनी होगी।</i>\nचैनल में शामिल होने के बाद, <b>अपना वीडियो लिंक फिर से भेजें और बॉट इसे आपके लिए डाउनलोड कर देगा</b> ❤️\n\n<blockquote>P.S. ☁️क्लाउड स्टोरेज से 🔞NSFW सामग्री और फाइल्स डाउनलोड करना भुगतान योग्य है! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ चैनल छोड़ने न करें - आपको बॉट का उपयोग करने से बाध्य होगा ⛔️</blockquote>"
 
     ERROR1 = "URL लिंक नहीं मिला। कृपया <b>https://</b> या <b>http://</b> के साथ एक URL दर्ज करें"
 
@@ -151,8 +151,8 @@ class Messages(object):
 • <code>/img 11-20 URL</code> → विशिष्ट रेंज डाउनलोड करें
 • <code>/img 11- URL</code> → 11वें से अंत तक डाउनलोड करें
 
-👨‍💻 <i>डेवलपर:</i> @upekshaip
-🤝 <i>योगदानकर्ता:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>डेवलपर:</i> @Global_X_SohaN
+🤝 <i>योगदानकर्ता:</i> @Global_X_HIM
 </blockquote>
     """
     
@@ -264,12 +264,12 @@ class Messages(object):
 ————————————
 💰 <b>मूल्य निर्धारण और सेटअप:</b>
 <blockquote>• मूल्य: समूह में प्रति 1 बॉट <b>$5/माह</b>
-• सेटअप: Contact @iilililiiillliiliililliilliliiil
+• सेटअप: Contact @Global_X_SohaN
 • भुगतान: 💎TON या अन्य तरीके💲
 • समर्थन: पूर्ण तकनीकी समर्थन समाहित है</blockquote>
 ————————————
 आप मेरे बॉट्स को अपने समूह में जोड़ सकते हैं और मुफ़्त 🔞<b>NSFW</b> को अनलॉक कर सकते हैं और सभी सीमाओं को दोगुना (x2️⃣) कर सकते हैं.
-मुझे संपर्क करें अगर आप मेरे बॉट्स का उपयोग करने की अनुमति देना चाहते हैं @iilililiiillliiliililliilliliiil
+मुझे संपर्क करें अगर आप मेरे बॉट्स का उपयोग करने की अनुमति देना चाहते हैं @Global_X_SohaN
 ————————————
 💡<b>TIP:</b> <blockquote>आप अपने दोस्तों के साथ किसी भी राशि के साथ पैसे चिपका सकते हैं (उदाहरण के लिए 100 लोग) और समूह के लिए 1 खरीद कर सकते हैं - सभी समूह सदस्य उस समूह में सभी बॉट्स कार्यों तक पूर्ण अनिश्चित पहुँच प्राप्त करेंगे केवल <b>0.05$</b></blockquote>
     """
