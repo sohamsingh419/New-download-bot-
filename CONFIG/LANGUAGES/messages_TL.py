@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>Pinamamahalaan ni</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 Baguhin ang wika: /lang</b>"
-    TO_USE_MSG = "<i>Upang magamit ang bot na ito, kailangan mong mag-subscribe sa @tg_ytdlp Telegram channel.</i>\nPagkatapos mong sumali sa channel, <b>ipadala ulit ang iyong video link at i-download ito ng bot para sa iyo</b> ❤️\n\n<blockquote>P.S. Ang pag-download ng 🔞NSFW content at mga file mula sa ☁️Cloud Storage ay may bayad! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Huwag umalis sa channel - mababan ka sa paggamit ng bot ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>Pinamamahalaan ni</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 Baguhin ang wika: /lang</b>"
+    TO_USE_MSG = "<i>Upang magamit ang bot na ito, kailangan mong mag-subscribe sa @Globall_X Telegram channel.</i>\nPagkatapos mong sumali sa channel, <b>ipadala ulit ang iyong video link at i-download ito ng bot para sa iyo</b> ❤️\n\n<blockquote>P.S. Ang pag-download ng 🔞NSFW content at mga file mula sa ☁️Cloud Storage ay may bayad! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Huwag umalis sa channel - mababan ka sa paggamit ng bot ⛔️</blockquote>"
 
     ERROR1 = "Hindi nahanap ang url link. Mangyaring maglagay ng url na may <b>https://</b> o <b>http://</b>"
 
@@ -152,8 +152,8 @@ Gamitin ang <code>/img URL</code> upang mag-download ng mga larawan/photo/album 
 • <code>/img 11-20 URL</code> → i-download ang tiyak na range
 • <code>/img 11- URL</code> → i-download mula sa ika-11 hanggang dulo
 
-👨‍💻 <i>Developer:</i> @upekshaip
-🤝 <i>Contributor:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>Developer:</i> @Global_X_SohaN
+🤝 <i>Contributor:</i> @Global_X_HiM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ Magdagdag ng aking mga bot sa inyong mga grupo upang makakuha ng mas mahusay na 
 ————————————
 💰 <b>Presyo at Setup:</b>
 <blockquote>• Presyo: <b>$5/buwan</b> bawat 1 bot sa grupo
-• Setup: Makipag-ugnayan sa @iilililiiillliiliililliilliliiil
+• Setup: Makipag-ugnayan sa @Global_X_SohaN
 • Pagbabayad: 💎TON o iba pang paraan💲
 • Suporta: Kasama ang full technical support</blockquote>
 ————————————
 Maaari mong idagdag ang aking mga bot sa inyong grupo upang i-unblock ang libreng 🔞<b>NSFW</b> at i-double (x2️⃣) ang lahat ng limits.
-Makipag-ugnayan sa akin kung nais mong payagan ko ang inyong grupo na gamitin ang aking mga bot @iilililiiillliiliililliilliliiil
+Makipag-ugnayan sa akin kung nais mong payagan ko ang inyong grupo na gamitin ang aking mga bot @Global_X_SohaN
 ————————————
 💡<b>TIP:</b> <blockquote>Maaari kayong mag-ambag ng pera kasama ang anumang dami ng inyong mga kaibigan (halimbawa 100 tao) at gumawa ng 1 purchase para sa buong grupo - LAHAT NG MIYEMBRO NG GRUPO AY MAGKAKAROON NG FULL UNLIMITED ACCESS sa lahat ng bot functions sa grupo na iyon para lamang sa <b>$0.05</b></blockquote>
     """
