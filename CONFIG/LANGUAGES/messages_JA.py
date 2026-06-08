@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>管理：</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 言語を変更: /lang</b>"
-    TO_USE_MSG = "<i>このボットを使用するには、@tg_ytdlp Telegramチャンネルに登録する必要があります。</i>\nチャンネルに参加した後、<b>動画リンクを再度送信すると、ボットがダウンロードします</b> ❤️\n\n<blockquote>P.S. 🔞NSFWコンテンツと☁️クラウドストレージからのファイルのダウンロードは有料です！1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ チャンネルを離れないでください - ボットの使用が禁止されます ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>管理：</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 言語を変更: /lang</b>"
+    TO_USE_MSG = "<i>このボットを使用するには、@Globall_X Telegramチャンネルに登録する必要があります。</i>\nチャンネルに参加した後、<b>動画リンクを再度送信すると、ボットがダウンロードします</b> ❤️\n\n<blockquote>P.S. 🔞NSFWコンテンツと☁️クラウドストレージからのファイルのダウンロードは有料です！1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ チャンネルを離れないでください - ボットの使用が禁止されます ⛔️</blockquote>"
 
     ERROR1 = "URLリンクが見つかりませんでした。<b>https://</b>または<b>http://</b>を含むURLを入力してください"
 
@@ -152,8 +152,8 @@ class Messages(object):
 • <code>/img 11-20 URL</code> → 特定の範囲をダウンロード
 • <code>/img 11- URL</code> → 11番目から最後までダウンロード
 
-👨‍💻 <i>開発者：</i> @upekshaip
-🤝 <i>貢献者：</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>開発者：</i> @Global_X_SohaN
+🤝 <i>貢献者：</i> @Global_X_HIM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ class Messages(object):
 ————————————
 💰 <b>価格とセットアップ：</b>
 <blockquote>• 価格：グループ内の1ボットあたり<b>$5/月</b>
-• セットアップ：@iilililiiillliiliililliilliliiilに連絡
+• セットアップ：@Global_X_SohaNに連絡
 • 支払い：💎TONまたはその他の方法💲
 • サポート：完全な技術サポートを含む</blockquote>
 ————————————
 私のボットをグループに追加して、無料の🔞<b>NSFW</b>のブロックを解除し、すべての制限を2倍（x2️⃣）にできます。
-グループで私のボットを使用できるようにしたい場合は、@iilililiiillliiliililliilliliiilに連絡してください
+グループで私のボットを使用できるようにしたい場合は、@Global_X_SohaNに連絡してください
 ————————————
 💡<b>ヒント：</b> <blockquote>友達と任意の金額（例えば100人）でお金を出し合い、グループ全体で1回購入すると、そのグループ内のすべてのボット機能に<b>0.05$</b>だけで全グループメンバーが完全な無制限アクセスを持ちます</blockquote>
     """
