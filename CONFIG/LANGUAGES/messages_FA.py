@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>مدیریت شده توسط</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 تغییر زبان: /lang</b>"
-    TO_USE_MSG = "<i>برای استفاده از این ربات باید به کانال تلگرام @tg_ytdlp مشترک شوید.</i>\nپس از پیوستن به کانال، <b>لینک ویدیوی خود را دوباره ارسال کنید و ربات آن را برای شما دانلود می‌کند</b> ❤️\n\n<blockquote>P.S. دانلود محتوای 🔞NSFW و فایل‌ها از ☁️Cloud Storage پولی است! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ کانال را ترک نکنید - از استفاده از ربات محروم خواهید شد ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>مدیریت شده توسط</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 تغییر زبان: /lang</b>"
+    TO_USE_MSG = "<i>برای استفاده از این ربات باید به کانال تلگرام  @Globall_X مشترک شوید.</i>\nپس از پیوستن به کانال، <b>لینک ویدیوی خود را دوباره ارسال کنید و ربات آن را برای شما دانلود می‌کند</b> ❤️\n\n<blockquote>P.S. دانلود محتوای 🔞NSFW و فایل‌ها از ☁️Cloud Storage پولی است! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ کانال را ترک نکنید - از استفاده از ربات محروم خواهید شد ⛔️</blockquote>"
 
     ERROR1 = "لینک URL یافت نشد. لطفاً یک URL با <b>https://</b> یا <b>http://</b> وارد کنید"
 
@@ -152,8 +152,8 @@ class Messages(object):
 • <code>/img 11-20 URL</code> → دانلود محدوده خاص
 • <code>/img 11- URL</code> → دانلود از 11ام تا آخر
 
-👨‍💻 <i>توسعه‌دهنده:</i> @upekshaip
-🤝 <i>مشارکت‌کننده:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>توسعه‌دهنده:</i> @Global_X_SohaN
+🤝 <i>مشارکت‌کننده:</i> @Global_X_HIM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ class Messages(object):
 ————————————
 💰 <b>قیمت‌گذاری و راه‌اندازی:</b>
 <blockquote>• قیمت: <b>$5/ماه</b> برای 1 ربات در گروه
-• راه‌اندازی: تماس با @iilililiiillliiliililliilliliiil
+• راه‌اندازی: تماس با @Global_X_SohaN
 • پرداخت: 💎TON یا روش‌های دیگر💲
 • پشتیبانی: پشتیبانی فنی کامل شامل می‌شود</blockquote>
 ————————————
 می‌توانید ربات‌های من را به گروه خود اضافه کنید تا 🔞<b>NSFW</b> رایگان را باز کنید و همه محدودیت‌ها را دو برابر (x2️⃣) کنید.
-اگر می‌خواهید من اجازه دهم گروه شما از ربات‌های من استفاده کند با من تماس بگیرید @iilililiiillliiliililliilliliiil
+اگر می‌خواهید من اجازه دهم گروه شما از ربات‌های من استفاده کند با من تماس بگیرید @Global_X_SohaN
 ————————————
 💡<b>نکته:</b> <blockquote>می‌توانید با هر تعداد از دوستان خود (مثلاً 100 نفر) پول جمع کنید و 1 خرید برای کل گروه انجام دهید - همه اعضای گروه دسترسی کامل نامحدود به همه عملکردهای ربات در آن گروه را فقط با <b>0.05$</b> خواهند داشت</blockquote>
     """
