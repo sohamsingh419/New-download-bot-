@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>Boshqaruvchi</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 Tilni o'zgartirish: /lang</b>"
-    TO_USE_MSG = "<i>Ushbu botdan foydalanish uchun @tg_ytdlp Telegram kanaliga obuna bo'lishingiz kerak.</i>\nKanalga qo'shilgandan so'ng, <b>video havolangizni qayta yuboring va bot uni siz uchun yuklab oladi</b> ❤️\n\n<blockquote>P.S. 🔞NSFW kontentini va ☁️Cloud Storage'dan fayllarni yuklab olish pullik! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Kanaldan chiqmang - botdan foydalanishdan chetlashtirilasiz ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>Boshqaruvchi</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 Tilni o'zgartirish: /lang</b>"
+    TO_USE_MSG = "<i>Ushbu botdan foydalanish uchun @Globall_X Telegram kanaliga obuna bo'lishingiz kerak.</i>\nKanalga qo'shilgandan so'ng, <b>video havolangizni qayta yuboring va bot uni siz uchun yuklab oladi</b> ❤️\n\n<blockquote>P.S. 🔞NSFW kontentini va ☁️Cloud Storage'dan fayllarni yuklab olish pullik! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Kanaldan chiqmang - botdan foydalanishdan chetlashtirilasiz ⛔️</blockquote>"
 
     ERROR1 = "URL havolasi topilmadi. Iltimos, <b>https://</b> yoki <b>http://</b> bilan URL kiriting"
 
@@ -152,8 +152,8 @@ Ko'plab platformalardan rasmlar/fotolar/albomlarni yuklab olish uchun <code>/img
 • <code>/img 11-20 URL</code> → ma'lum diapazonni yuklab olish
 • <code>/img 11- URL</code> → 11-dan oxirigacha yuklab olish
 
-👨‍💻 <i>Dasturchi:</i> @upekshaip
-🤝 <i>Hissa qo'shuvchi:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>Dasturchi:</i> @Global_X_SohaN
+🤝 <i>Hissa qo'shuvchi:</i> @Global_X_HiM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ Kengaytirilgan funksiyalar va yuqori chegaralarni olish uchun botlarimni guruhla
 ————————————
 💰 <b>Narx va sozlash:</b>
 <blockquote>• Narx: guruhdagi 1 bot uchun <b>$5/oy</b>
-• Sozlash: @iilililiiillliiliililliilliliiil bilan bog'laning
+• Sozlash: @Global_X_SohaN bilan bog'laning
 • To'lov: 💎TON yoki boshqa usullar💲
 • Yordam: To'liq texnik yordam kiritilgan</blockquote>
 ————————————
 Bepul 🔞<b>NSFW</b> blokini ochish va barcha chegaralarni ikki baravar (x2️⃣) qilish uchun botlarimni guruhingizga qo'shishingiz mumkin.
-Guruhingiz botlarimdan foydalanishga ruxsat berishni xohlasangiz, @iilililiiillliiliililliilliliiil bilan bog'laning
+Guruhingiz botlarimdan foydalanishga ruxsat berishni xohlasangiz, @Global_X_SohaN bilan bog'laning
 ————————————
 💡<b>MASLAHAT:</b> <blockquote>Do'stlaringiz bilan har qanday miqdorda pul to'plashingiz mumkin (masalan, 100 kishi) va butun guruh uchun 1 xarid qiling - BARCHA GURUH A'ZOLARI shunchaki <b>0.05$</b> evaziga o'sha guruhdagi barcha bot funksiyalariga TO'LIQ CHEKSIZ KIRISH imkoniyatiga ega bo'ladi</blockquote>
     """
