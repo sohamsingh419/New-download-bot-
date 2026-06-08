@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>Verwaltet von</i> @iilililiiillliiliililliilliliiil\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 Sprache ändern: /lang</b>"
-    TO_USE_MSG = "<i>Um diesen Bot zu verwenden, müssen Sie dem Telegram-Kanal @tg_ytdlp beitreten.</i>\nNachdem Sie dem Kanal beigetreten sind, <b>senden Sie Ihren Video-Link erneut und der Bot wird ihn für Sie herunterladen</b> ❤️\n\n<blockquote>P.S. Das Herunterladen von 🔞NSFW-Inhalten und Dateien von ☁️Cloud Storage ist kostenpflichtig! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Verlassen Sie den Kanal nicht - Sie werden vom Bot-Nutzung gesperrt ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>Verwaltet von</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 Sprache ändern: /lang</b>"
+    TO_USE_MSG = "<i>Um diesen Bot zu verwenden, müssen Sie dem Telegram-Kanal @Globall_X beitreten.</i>\nNachdem Sie dem Kanal beigetreten sind, <b>senden Sie Ihren Video-Link erneut und der Bot wird ihn für Sie herunterladen</b> ❤️\n\n<blockquote>P.S. Das Herunterladen von 🔞NSFW-Inhalten und Dateien von ☁️Cloud Storage ist kostenpflichtig! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Verlassen Sie den Kanal nicht - Sie werden vom Bot-Nutzung gesperrt ⛔️</blockquote>"
 
     ERROR1 = "URL-Link nicht gefunden. Bitte geben Sie eine URL mit <b>https://</b> oder <b>http://</b> ein"
 
@@ -152,8 +152,8 @@ Verwenden Sie <code>/img URL</code>, um Bilder/Fotos/Alben von vielen Plattforme
 • <code>/img 11-20 URL</code> → spezifischen Bereich herunterladen
 • <code>/img 11- URL</code> → von 11. bis zum Ende herunterladen
 
-👨‍💻 <i>Developer:</i> @upekshaip
-🤝 <i>Contributor:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>Developer:</i> @Global_X_SohaN
+🤝 <i>Contributor:</i> @Global_X_HIM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ Fügen Sie meine Bots zu Ihren Gruppen hinzu, um erweiterte Funktionen und höhe
 ————————————
 💰 <b>Preise & Einrichtung:</b>
 <blockquote>• Preis: <b>$5/Monat</b> pro 1 Bot in Gruppe
-• Einrichtung: Kontaktieren Sie @iilililiiillliiliililliilliliiil
+• Einrichtung: Kontaktieren Sie @Global_X_SohaN
 • Zahlung: 💎TON oder andere Methoden💲
 • Support: Vollständiger technischer Support inklusive</blockquote>
 ————————————
 Sie können meine Bots zu Ihrer Gruppe hinzufügen, um kostenloses 🔞<b>NSFW</b> freizuschalten und alle Limits zu verdoppeln (x2️⃣).
-Kontaktieren Sie mich, wenn Sie möchten, dass ich Ihrer Gruppe erlaube, meine Bots zu verwenden @iilililiiillliiliililliilliliiil
+Kontaktieren Sie mich, wenn Sie möchten, dass ich Ihrer Gruppe erlaube, meine Bots zu verwenden @Global_X_SohaN
 ————————————
 💡<b>TIPP:</b> <blockquote>Sie können Geld mit beliebig vielen Ihrer Freunde zusammenlegen (z.B. 100 Personen) und 1 Kauf für die ganze Gruppe tätigen - ALLE GRUPPENMITGLIEDER HABEN VOLLSTÄNDIGEN UNLIMITIERTEN ZUGANG zu allen Bot-Funktionen in dieser Gruppe für nur <b>0.05$</b></blockquote>
     """
