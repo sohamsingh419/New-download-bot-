@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>由</i> @iilililiiillliiliililliilliliiil <i>管理</i>\n🇮🇹 @tgytdlp_it_bot\n🇦🇪 @tgytdlp_uae_bot\n🇬🇧 @tgytdlp_uk_bot\n🇫🇷 @tgytdlp_fr_bot</blockquote>\n<b>🌍 更改语言: /lang</b>"
-    TO_USE_MSG = "<i>要使用此机器人，您需要订阅 @tg_ytdlp Telegram 频道。</i>\n加入频道后，<b>重新发送您的视频链接，机器人将为您下载</b> ❤️\n\n<blockquote>P.S. 下载 🔞NSFW 内容和 ☁️云存储文件需要付费！1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ 不要离开频道 - 否则将被禁止使用机器人 ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>由</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 更改语言: /lang</b>"
+    TO_USE_MSG = "<i>要使用此机器人，您需要订阅 @Globall_X Telegram 频道。</i>\n加入频道后，<b>重新发送您的视频链接，机器人将为您下载</b> ❤️\n\n<blockquote>P.S. 下载 🔞NSFW 内容和 ☁️云存储文件需要付费！1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ 不要离开频道 - 否则将被禁止使用机器人 ⛔️</blockquote>"
 
     ERROR1 = "未找到URL链接。请输入带有 <b>https://</b> 或 <b>http://</b> 的URL"
 
@@ -152,8 +152,8 @@ class Messages(object):
 • <code>/img 11-20 URL</code> → 下载特定范围
 • <code>/img 11- URL</code> → 从第11个下载到末尾
 
-👨‍💻 <i>开发者：</i> @upekshaip
-🤝 <i>贡献者：</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>开发者：</i> @Global_X_SohaN
+🤝 <i>贡献者：</i> @Global_X_HiM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ class Messages(object):
 ————————————
 💰 <b>定价和设置：</b>
 <blockquote>• 价格：<b>$5/月</b> 每个群组中的1个机器人
-• 设置：联系 @iilililiiillliiliililliilliliiil
+• 设置：联系 @Global_X_SohaN
 • 付款：💎TON 或其他方式💲
 • 支持：包含完整技术支持</blockquote>
 ————————————
 您可以将我的机器人添加到您的群组以解锁免费 🔞<b>NSFW</b> 并将所有限制加倍（x2️⃣）。
-如果您希望我允许您的群组使用我的机器人，请联系我 @iilililiiillliiliililliilliliiil
+如果您希望我允许您的群组使用我的机器人，请联系我 @Global_X_SohaN
 ————————————
 💡<b>提示：</b> <blockquote>您可以与任意数量的朋友（例如100人）一起凑钱，为整个群组进行1次购买 - 所有群组成员只需 <b>0.05$</b> 即可在该群组中完全无限制地访问所有机器人功能</blockquote>
     """
