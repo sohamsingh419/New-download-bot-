@@ -886,7 +886,8 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
             # if use_default_format is True, then do not take from format.txt, but use default ones
             if use_default_format:
                 attempts = [
-                    {'format': 'bv*[vcodec*=avc1][height<=1080][height>720]+ba[acodec*=mp4a]/bv*[vcodec*=avc1][height<=1080]+ba[acodec*=mp4a]/bv*[vcodec*=avc1]+ba/bv+ba/best', 'prefer_ffmpeg': True, 'merge_output_format': user_merge_format, 'extract_flat': False},
+                    {'format': 'bv*[height<=1080][height>720]+ba/bv*[height<=1080]+ba/bv+ba/best',
+ 'prefer_ffmpeg': True, 'merge_output_format': user_merge_format, 'extract_flat': False},
                     {'format': 'best', 'prefer_ffmpeg': False, 'extract_flat': False}
                 ]
             else:
