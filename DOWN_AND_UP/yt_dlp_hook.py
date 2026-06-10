@@ -395,19 +395,6 @@ def get_video_formats(url, user_id=None, playlist_start_index=1, cookies_already
                     else:
                         logger.warning(f"All cookie retry attempts failed in get_video_formats for user {user_id}")
                 
-                # If the error is "Requested format is not available", retry with format='best'
-                if "Requested format is not available" in error_text:
-                    logger.warning(f"YouTube 'Requested format is not available' during info fetch — retrying with format=best for user {user_id}")
-                    try:
-                        _retry_opts = {**opts, 'format': 'best'}
-                        with yt_dlp.YoutubeDL(_retry_opts) as _ydl:
-                            _retry_info = _ydl.extract_info(url, download=False)
-                        if _retry_info is not None:
-                            logger.info(f"Retry with format=best succeeded for user {user_id}")
-                            return _retry_info
-                    except Exception as _retry_e:
-                        logger.warning(f"Retry with format=best also failed for user {user_id}: {_retry_e}")
-                
                 # Note: Geo errors are handled at the outer level (before try_with_proxy_fallback)
                 # to ensure proxy from file is tried first
             elif not is_youtube_url(url) and user_id is not None:
@@ -432,19 +419,6 @@ def get_video_formats(url, user_id=None, playlist_start_index=1, cookies_already
                         logger.warning(f"get_video_formats retry with cookie fallback failed for user {user_id}")
                 else:
                     logger.info(f"Error appears to be non-cookie-related for {url}, skipping cookie fallback")
-            
-            # If the error is "Requested format is not available", retry with format='best'
-            if "Requested format is not available" in error_text:
-                logger.warning(f"'Requested format is not available' during info fetch — retrying with format=best")
-                try:
-                    _retry_opts = {**opts, 'format': 'best'}
-                    with yt_dlp.YoutubeDL(_retry_opts) as _ydl:
-                        _retry_info = _ydl.extract_info(url, download=False)
-                    if _retry_info is not None:
-                        logger.info(f"Retry with format=best succeeded")
-                        return _retry_info
-                except Exception as _retry_e:
-                    logger.warning(f"Retry with format=best also failed: {_retry_e}")
             
             # Check for TikTok private account error
             # Безопасная проверка домена через urlparse

@@ -880,12 +880,8 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
             effective_merge_format = user_merge_format
         
         if format_override:
-            attempts = [
-                {'format': format_override, 'prefer_ffmpeg': True, 'merge_output_format': effective_merge_format},
-                {'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best', 'prefer_ffmpeg': True, 'merge_output_format': effective_merge_format, 'extract_flat': False},
-                {'format': 'best', 'prefer_ffmpeg': False, 'extract_flat': False}
-            ]
-            logger.info(f"Created attempts with format_override={format_override} and merge_output_format={effective_merge_format} (with fallbacks)")
+            attempts = [{'format': format_override, 'prefer_ffmpeg': True, 'merge_output_format': effective_merge_format}]
+            logger.info(f"Created attempts with format_override and merge_output_format={effective_merge_format}")
         else:
             # if use_default_format is True, then do not take from format.txt, but use default ones
             if use_default_format:
@@ -900,11 +896,7 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
                     if custom_format.lower() == "best":
                         attempts = [{'format': custom_format, 'prefer_ffmpeg': False}]
                     else:
-                        attempts = [
-                            {'format': custom_format, 'prefer_ffmpeg': True, 'merge_output_format': user_merge_format},
-                            {'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best', 'prefer_ffmpeg': True, 'merge_output_format': user_merge_format, 'extract_flat': False},
-                            {'format': 'best', 'prefer_ffmpeg': False, 'extract_flat': False}
-                        ]
+                        attempts = [{'format': custom_format, 'prefer_ffmpeg': True, 'merge_output_format': user_merge_format}]
                 else:
                     attempts = [
                         {'format': 'bv*[vcodec*=avc1][height<=1080][height>720]+ba[acodec*=mp4a]/bv*[vcodec*=avc1][height<=1080]+ba[acodec*=mp4a]/bv*[vcodec*=avc1]+ba/bv+ba/best',
