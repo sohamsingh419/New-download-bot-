@@ -900,12 +900,24 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
                         attempts = [{'format': custom_format, 'prefer_ffmpeg': True, 'merge_output_format': user_merge_format}]
                 else:
                     attempts = [
-                        {'format': 'bv*[height<=1080][height>720]+ba/bv*[height<=1080]+ba/bv+ba/best'
-                        'prefer_ffmpeg': True, 'merge_output_format': user_merge_format, 'extract_flat': False},
-                        {'format': 'bv*+ba/bestvideo+bestaudio/best/bv+ba/best'
-                        'prefer_ffmpeg': True, 'merge_output_format': user_merge_format, 'extract_flat': False},
-                        {'format': 'best', 'prefer_ffmpeg': False, 'extract_flat': False}
-                    ]
+    {
+        'format': 'bv*[height<=1080][height>720]+ba/bv*[height<=1080]+ba/bv+ba/best',
+        'prefer_ffmpeg': True,
+        'merge_output_format': user_merge_format,
+        'extract_flat': False
+    },
+    {
+        'format': 'bv*+ba/bestvideo+bestaudio/best/bv+ba/best',
+        'prefer_ffmpeg': True,
+        'merge_output_format': user_merge_format,
+        'extract_flat': False
+    },
+    {
+        'format': 'best',
+        'prefer_ffmpeg': False,
+        'extract_flat': False
+    }
+					]
 
         status_msg = safe_send_message(user_id, safe_get_messages(user_id).VIDEO_PROCESSING_MSG, message=message)
         hourglass_msg = safe_send_message(user_id, safe_get_messages(user_id).PLEASE_WAIT_MSG, message=message)
