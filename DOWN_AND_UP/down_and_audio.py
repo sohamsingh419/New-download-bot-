@@ -1066,7 +1066,9 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                'extractor_args': {
                   'generic': {
                       'impersonate': ['chrome']
-                  }
+                  },
+                  'youtubetab': {'skip': ['authcheck']},
+                  'youtube': {'player_client': ['tv_embedded']}
                },
                'referer': url,
                'geo_bypass': True,
@@ -2058,7 +2060,9 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                            'restrictfilenames': False,
                            'progress_hooks': [progress_hook],
                            'extractor_args': {
-                              'generic': {'impersonate': ['chrome']}
+                              'generic': {'impersonate': ['chrome']},
+                              'youtubetab': {'skip': ['authcheck']},
+                              'youtube': {'player_client': ['tv_embedded']}
                            },
                            'referer': url,
                            'geo_bypass': True,

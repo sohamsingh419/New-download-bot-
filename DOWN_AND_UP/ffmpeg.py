@@ -1643,7 +1643,7 @@ def download_all_subtitles(url, user_id, video_dir, selected_langs=None, all_sel
         info = None
         working_ydl = None
         
-        for client in ('tv', None):  # Only try tv client since it always works
+        for client in ('tv_embedded', 'android', None):  # tv_embedded gives most formats; android fallback
             info_opts = dict(base_opts)
             # Preserve youtubepot extractor_args if they exist (from PO token provider)
             # and add youtube player_client
@@ -1817,7 +1817,7 @@ def download_all_subtitles(url, user_id, video_dir, selected_langs=None, all_sel
                                     'format': 'best',
                                     'ignore_no_formats_error': True,
                                     'cookiefile': user_cookie_path if os.path.exists(user_cookie_path) else None,
-                                    'extractor_args': {'youtube': {'player_client': ['tv']}},
+                                    'extractor_args': {'youtube': {'player_client': ['tv_embedded']}},
                                 }
                                 if proxy_info_opts['cookiefile'] is None:
                                     proxy_info_opts.pop('cookiefile')
@@ -1862,7 +1862,7 @@ def download_all_subtitles(url, user_id, video_dir, selected_langs=None, all_sel
                                     'format': 'best',
                                     'ignore_no_formats_error': True,
                                     'cookiefile': user_cookie_path if os.path.exists(user_cookie_path) else None,
-                                    'extractor_args': {'youtube': {'player_client': ['tv']}},
+                                    'extractor_args': {'youtube': {'player_client': ['tv_embedded']}},
                                 }
                                 if proxy_info_opts['cookiefile'] is None:
                                     proxy_info_opts.pop('cookiefile')

@@ -938,7 +938,8 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
             ydl_opts = {
                 'quiet': True,
                 'extractor_args': {
-                    'youtubetab': {'skip': ['authcheck']}
+                    'youtubetab': {'skip': ['authcheck']},
+                    'youtube': {'player_client': ['tv_embedded']}
                 }
             }
             # Try to use cookies from download directory first, then fallback to user root
@@ -1266,7 +1267,8 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
                 'restrictfilenames': False,
                 'extractor_args': {
                     'generic': {'impersonate': ['chrome']},
-                    'youtubetab': {'skip': ['authcheck']}
+                    'youtubetab': {'skip': ['authcheck']},
+                    'youtube': {'player_client': ['tv_embedded']}
                 },
                 'referer': url,
                 'geo_bypass': True,
