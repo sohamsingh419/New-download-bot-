@@ -1153,7 +1153,7 @@ def test_youtube_cookies_on_url(cookie_file_path: str, url: str, user_id: int | 
             'ignore_no_formats_error': True,
             'cookiefile': cookie_file_path,
             'extractor_args': {
-                'youtube': {'player_client': ['tv']}
+                'youtube': {'player_client': ['tv_embedded']}
             },
             'retries': 2,
             'extractor_retries': 1,
@@ -1237,7 +1237,7 @@ def test_youtube_cookies(cookie_file_path: str, user_id: int | None = None) -> b
             'ignore_no_formats_error': True,  # Ignore format errors - we only check if info is extractable
             'cookiefile': cookie_file_path,
             'extractor_args': {
-                'youtube': {'player_client': ['tv']}
+                'youtube': {'player_client': ['tv_embedded']}
             },
             'retries': 3,
             'extractor_retries': 2,
@@ -1370,7 +1370,7 @@ def test_youtube_cookies(cookie_file_path: str, user_id: int | None = None) -> b
                     'ignore_no_formats_error': True,
                     'cookiefile': cookie_file_path,
                     'extractor_args': {
-                        'youtube': {'player_client': ['tv']}
+                        'youtube': {'player_client': ['tv_embedded']}
                     },
                     'retries': 2,
                     'extractor_retries': 1,
@@ -2055,7 +2055,7 @@ def retry_download_with_proxy(user_id: int, url: str, download_func, *args, erro
                                     attempt_opts_no_cookies['extractor_args']['youtube'] = {}
                                 
                                 # Пробуем разные клиенты по очереди
-                                youtube_clients = ['tv', 'android', 'web']
+                                youtube_clients = ['tv_embedded', 'android', 'web']
                                 for client in youtube_clients:
                                     try:
                                         attempt_opts_no_cookies['extractor_args']['youtube']['player_client'] = [client]
@@ -2134,7 +2134,7 @@ def retry_download_with_proxy(user_id: int, url: str, download_func, *args, erro
                                         kwargs_no_cookies['attempt_opts']['extractor_args']['youtube'] = {}
                                     
                                     # Пробуем разные клиенты по очереди
-                                    youtube_clients = ['tv', 'android', 'web']
+                                    youtube_clients = ['tv_embedded', 'android', 'web']
                                     for client in youtube_clients:
                                         try:
                                             kwargs_no_cookies['attempt_opts']['extractor_args']['youtube']['player_client'] = [client]

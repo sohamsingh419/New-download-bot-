@@ -96,6 +96,9 @@ def get_direct_link(url, user_id, quality_arg=None, cookies_already_checked=Fals
                 },
                 'youtubetab': {
                     'skip': ['authcheck']
+                },
+                'youtube': {
+                    'player_client': ['tv_embedded']
                 }
             },
             'referer': url,
