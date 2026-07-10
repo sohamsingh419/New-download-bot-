@@ -72,7 +72,7 @@ def get_video_formats(url, user_id=None, playlist_start_index=1, cookies_already
         },
         'referer': url,
         'geo_bypass': True,
-'ignore_no_formats_error': True,
+        'ignore_no_formats_error': True,
         # check_certificate and no_check_certificates are set from user_args (default: check_certificate=False, no_check_certificates=True)
         'live_from_start': True
     }
