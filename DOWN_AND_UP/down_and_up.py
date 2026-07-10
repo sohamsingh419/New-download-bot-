@@ -939,7 +939,7 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
                 'quiet': True,
                 'extractor_args': {
                     'youtubetab': {'skip': ['authcheck']},
-                    'youtube': {'player_client': ['tv_embedded']}
+                    'youtube': {'player_client': ['ios', 'mweb', 'tv_embedded']}
                 }
             }
             # Try to use cookies from download directory first, then fallback to user root
@@ -1268,10 +1268,11 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
                 'extractor_args': {
                     'generic': {'impersonate': ['chrome']},
                     'youtubetab': {'skip': ['authcheck']},
-                    'youtube': {'player_client': ['tv_embedded']}
+                    'youtube': {'player_client': ['ios', 'mweb', 'tv_embedded']}
                 },
                 'referer': url,
                 'geo_bypass': True,
+'ignore_no_formats_error': True,
                 # check_certificate and no_check_certificates are set from user_args (default: check_certificate=False, no_check_certificates=True)
                 'live_from_start': True if not did_live_from_start_retry else False
                 #'socket_timeout': 60,  # Increase socket timeout
