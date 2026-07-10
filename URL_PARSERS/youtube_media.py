@@ -334,7 +334,7 @@ def run_ytdlp_download(url: str, out_path: str, format_selector: str,
     """
     base_path = out_path
     if out_path.endswith(".mp4") or out_path.endswith(".mkv"):
-        base_path = out.path.rsplit(".", 1)[0] if hasattr(out, "path") else out_path.rsplit(".", 1)[0]
+        base_path = out_path.rsplit(".", 1)[0]
 
     out_template = f"{base_path}.%(ext)s"
     ydl_opts = build_ytdlp_youtube_options(
