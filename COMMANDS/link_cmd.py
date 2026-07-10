@@ -87,9 +87,12 @@ def get_direct_link(url, user_id, quality_arg=None, cookies_already_checked=Fals
             'no_warnings': True,
             'skip_download': True,
             'noplaylist': True,
-            'format': format_spec,
+            # 'format' is intentionally omitted here: yt-dlp validates it
+            # even with simulate=True/download=False, causing 'format not available'
+            # on server IPs. Format selection happens at actual download time.
             'extract_flat': False,
             'simulate': True,
+            'ignore_no_formats_error': True,
             'extractor_args': {
                 'generic': {
                     'impersonate': ['chrome']
@@ -98,7 +101,7 @@ def get_direct_link(url, user_id, quality_arg=None, cookies_already_checked=Fals
                     'skip': ['authcheck']
                 },
                 'youtube': {
-                    'player_client': ['tv_embedded']
+                    'player_client': ['ios', 'mweb', 'tv_embedded']
                 }
             },
             'referer': url,

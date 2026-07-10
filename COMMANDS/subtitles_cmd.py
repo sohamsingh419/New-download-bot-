@@ -911,7 +911,7 @@ def get_available_subs_languages(url, user_id=None, auto_only=False):
             base_opts['cookiefile'] = Config.COOKIE_FILE_PATH
 
         last_info, used_client = {}, None
-        for client in ('tv_embedded', 'android', None):  # tv_embedded gives most formats
+        for client in ('ios', 'mweb', 'tv_embedded', 'android', None):  # tv_embedded gives most formats
             opts = dict(base_opts)
             if client:
                 opts['extractor_args'] = {'youtube': {'player_client': [client]}}
@@ -1491,7 +1491,7 @@ def download_subtitles_ytdlp(url, user_id, video_dir, available_langs):
             working_ydl = None
             working_info_opts = None
             
-            for client in ('tv_embedded', 'android', None):  # tv_embedded gives most formats
+            for client in ('ios', 'mweb', 'tv_embedded', 'android', None):  # tv_embedded gives most formats
                 opts = dict(base_opts)
                 # Preserve youtubepot extractor_args if they exist (from PO token provider)
                 # and add youtube player_client
