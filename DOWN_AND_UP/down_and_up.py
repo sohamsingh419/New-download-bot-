@@ -937,10 +937,9 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
         try:
             ydl_opts = {
                 'quiet': True,
-                'ignore_no_formats_error': True,
                 'extractor_args': {
                     'youtubetab': {'skip': ['authcheck']},
-                    'youtube': {'player_client': ['ios', 'mweb', 'tv_embedded']}
+                    'youtube': {'player_client': ['tv_embedded']}
                 }
             }
             # Try to use cookies from download directory first, then fallback to user root
@@ -953,9 +952,7 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
             elif os.path.exists(user_cookie_path):
                 ydl_opts['cookiefile'] = user_cookie_path
                 logger.info(f"Using cookies from user directory: {user_cookie_path}")
-            _pre_opts = {k: v for k, v in ydl_opts.items() if k != 'format'}
-            _pre_opts['ignore_no_formats_error'] = True
-            with yt_dlp.YoutubeDL(_pre_opts) as ydl:
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 pre_info = ydl.extract_info(url, download=False)
             # Normalize to dict and check None
             if isinstance(pre_info, list):
@@ -1268,11 +1265,10 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
                 'ignoreerrors': ignore_errors,
                 # Allow Unicode characters in filenames
                 'restrictfilenames': False,
-                'ignore_no_formats_error': True,
                 'extractor_args': {
                     'generic': {'impersonate': ['chrome']},
                     'youtubetab': {'skip': ['authcheck']},
-                    'youtube': {'player_client': ['ios', 'mweb', 'tv_embedded']}
+                    'youtube': {'player_client': ['tv_embedded']}
                 },
                 'referer': url,
                 'geo_bypass': True,
@@ -1676,12 +1672,7 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
                 def extract_info_operation(opts):
                     messages = safe_get_messages(message.chat.id)
                     try:
-                        # Strip 'format' key for extraction: yt-dlp validates it even
-                        # with download=False; on server IPs YouTube returns limited
-                        # formats that may not match, causing 'format not available'.
-                        extract_opts = {k: v for k, v in opts.items() if k != 'format'}
-                        extract_opts['ignore_no_formats_error'] = True
-                        with yt_dlp.YoutubeDL(extract_opts) as ydl:
+                        with yt_dlp.YoutubeDL(opts) as ydl:
                             logger.info("yt-dlp instance created, starting extract_info...")
                             info_dict = ydl.extract_info(url, download=False)
                             logger.info("extract_info completed successfully")

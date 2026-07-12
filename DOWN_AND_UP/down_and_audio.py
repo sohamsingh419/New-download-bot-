@@ -1068,7 +1068,7 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                       'impersonate': ['chrome']
                   },
                   'youtubetab': {'skip': ['authcheck']},
-                  'youtube': {'player_client': ['ios', 'mweb', 'tv_embedded']}
+                  'youtube': {'player_client': ['tv_embedded']}
                },
                'referer': url,
                'geo_bypass': True,
@@ -1208,9 +1208,7 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
             # match_filter will be added later for domain filtering only
             
             try:
-                _audio_extract_opts = {k: v for k, v in ytdl_opts.items() if k != 'format'}
-                _audio_extract_opts['ignore_no_formats_error'] = True
-                with yt_dlp.YoutubeDL(_audio_extract_opts) as ydl:
+                with yt_dlp.YoutubeDL(ytdl_opts) as ydl:
                     info_dict = ydl.extract_info(url, download=False)
                 # Normalize info_dict to dict
                 if isinstance(info_dict, list):
@@ -2064,7 +2062,7 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                            'extractor_args': {
                               'generic': {'impersonate': ['chrome']},
                               'youtubetab': {'skip': ['authcheck']},
-                              'youtube': {'player_client': ['ios', 'mweb', 'tv_embedded']}
+                              'youtube': {'player_client': ['tv_embedded']}
                            },
                            'referer': url,
                            'geo_bypass': True,
@@ -2097,9 +2095,7 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                         ytdl_opts = add_pot_to_ytdl_opts(ytdl_opts, url)
                         
                         # Try download with safe filename
-                        _safe_extract_opts = {k: v for k, v in ytdl_opts.items() if k != 'format'}
-                        _safe_extract_opts['ignore_no_formats_error'] = True
-                        with yt_dlp.YoutubeDL(_safe_extract_opts) as ydl:
+                        with yt_dlp.YoutubeDL(ytdl_opts) as ydl:
                             info_dict = ydl.extract_info(url, download=False)
                             if "entries" in info_dict:
                                 entries = info_dict["entries"]
