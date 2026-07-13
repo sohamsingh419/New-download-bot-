@@ -62,7 +62,7 @@ class Messages(object):
 (يحمل أول 3 مقاطع فيديو من نتائج البحث بكلماتك)
 
 وهكذا...
-انظر <a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">قائمة المواقع المدعومة</a>
+انظر <a href=\"https://globalxdownloaderbot.vercel.app/">قائمة المواقع المدعومة</a>
 </blockquote>
 
 <blockquote expandable>🖼 <b>الصور (gallery-dl)</b>
@@ -80,7 +80,7 @@ class Messages(object):
 <code>/img 11- https://example.com/album</code> — من 11 إلى النهاية (أو حد البوت)
 
 <i>المنصات المدعومة تشمل vk، 2ch، 35photo، 4chan، 500px، ArtStation، Boosty، Civitai، Cyberdrop، DeviantArt، Discord، Facebook، Fansly، Instagram، Pinterest، Reddit، TikTok، Tumblr، Twitter/X، JoyReactor، إلخ. القائمة الكاملة:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">مواقع gallery-dl المدعومة</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">مواقع gallery-dl المدعومة</a>
 </blockquote>
 """
     HELP_MSG = """
