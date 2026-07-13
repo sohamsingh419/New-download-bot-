@@ -62,7 +62,7 @@ Or you can use <code>/vid FROM-TO URL</code>. For example: <code>/vid 3-7 URL</c
 (downloads first 3 video from search results by your prompt)
 
 and so on...
-see <a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">supported sites list</a>
+see <a href=\"https://globalxdownloaderbot.vercel.app/">supported sites list</a>
 </blockquote>
 
 <blockquote expandable>🖼 <b>Images (gallery-dl)</b>
@@ -80,7 +80,7 @@ Use <code>/img URL</code> to download images/photos/albums from many platforms.
 <code>/img 11- https://example.com/album</code> — from 11 to the end (or bot limit)
 
 <i>Supported platforms include vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor, etc. Full list:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">gallery-dl supported sites</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">gallery-dl supported sites</a>
 </blockquote>
 """
     HELP_MSG = """
