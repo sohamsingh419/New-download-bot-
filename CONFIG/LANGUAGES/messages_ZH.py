@@ -62,7 +62,7 @@ class Messages(object):
 （根据您的提示从搜索结果下载前3个视频）
 
 等等...
-查看 <a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">支持的网站列表</a>
+查看 <a href=\"https://globalxdownloaderbot.vercel.app/">支持的网站列表</a>
 </blockquote>
 
 <blockquote expandable>🖼 <b>图片 (gallery-dl)</b>
@@ -80,7 +80,7 @@ class Messages(object):
 <code>/img 11- https://example.com/album</code> — 从11到末尾（或机器人限制）
 
 <i>支持的平台包括 vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor 等。完整列表：</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">gallery-dl 支持的网站</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">gallery-dl 支持的网站</a>
 </blockquote>
 """
     HELP_MSG = """
