@@ -173,8 +173,8 @@ Ko'plab platformalardan rasmlar/fotolar/albomlarni yuklab olish uchun <code>/img
         "</pre>\n"
         "<blockquote>"
         "<b><u>Ko'rsatmalar:</u></b>\n"
-        "https://t.me/tg_ytdlp/203 \n"
-        "https://t.me/tg_ytdlp/214 "
+        "https://t.me/Globall_X \n"
+        "https://t.me/Globall_X "
         "</blockquote>"
     )
     
