@@ -173,8 +173,8 @@ Usa <code>/img URL</code> para descargar imágenes/fotos/álbumes de muchas plat
         "</pre>\n"
         "<blockquote>"
         "<b><u>Instrucciones:</u></b>\n"
-        "https://t.me/tg_ytdlp/203 \n"
-        "https://t.me/tg_ytdlp/214 "
+        "https://t.me/Globall_X \n"
+        "https://t.me/Globall_X "
         "</blockquote>"
     )
     
