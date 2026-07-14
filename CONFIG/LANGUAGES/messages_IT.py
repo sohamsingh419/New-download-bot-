@@ -173,8 +173,8 @@ Usa <code>/img URL</code> per scaricare immagini/foto/album da molte piattaforme
         "</pre>\n"
         "<blockquote>"
         "<b><u>Istruzioni:</u></b>\n"
-        "https://t.me/tg_ytdlp/203 \n"
-        "https://t.me/tg_ytdlp/214 "
+        "https://t.me/Globall_X \n"
+        "https://t.me/Globall_X "
         "</blockquote>"
     )
     
