@@ -173,8 +173,8 @@ Birçok platformdan görsel/fotoğraf/albüm indirmek için <code>/img URL</code
         "</pre>\n"
         "<blockquote>"
         "<b><u>Talimatlar:</u></b>\n"
-        "https://t.me/tg_ytdlp/203 \n"
-        "https://t.me/tg_ytdlp/214 "
+        "https://t.me/Globall_X \n"
+        "https://t.me/Globall_X "
         "</blockquote>"
     )
     
