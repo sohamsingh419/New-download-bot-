@@ -2168,8 +2168,8 @@ Pelajari lebih lanjut: /playlist"""
     
     # Settings Command Messages
     SETTINGS_LANGUAGE_BUTTON_MSG = "🌍 BAHASA"
-    SETTINGS_DEV_GITHUB_BUTTON_MSG = "🛠 Pengembang GitHub"
-    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "🛠 Kontrol GitHub"
+    SETTINGS_DEV_GITHUB_BUTTON_MSG = "⚙️ Pembaruan"
+    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "📑 Panduan"
     SETTINGS_CLEAN_BUTTON_MSG = "🧹 BERSIHKAN"
     SETTINGS_COOKIES_BUTTON_MSG = "🍪 kue"
     SETTINGS_MEDIA_BUTTON_MSG = "🎞 MEDIA"
