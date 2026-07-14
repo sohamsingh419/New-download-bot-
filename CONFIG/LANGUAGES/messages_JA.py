@@ -62,7 +62,7 @@ class Messages(object):
 （あなたのプロンプトによる検索結果から最初の3本の動画をダウンロード）
 
 など...
-<a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">対応サイト一覧</a>を参照
+<a href=\"https://globalxdownloaderbot.vercel.app/">対応サイト一覧</a>を参照
 </blockquote>
 
 <blockquote expandable>🖼 <b>画像 (gallery-dl)</b>
@@ -80,7 +80,7 @@ class Messages(object):
 <code>/img 11- https://example.com/album</code> — 11から最後まで（またはボットの制限まで）
 
 <i>対応プラットフォームには、vk、2ch、35photo、4chan、500px、ArtStation、Boosty、Civitai、Cyberdrop、DeviantArt、Discord、Facebook、Fansly、Instagram、Pinterest、Reddit、TikTok、Tumblr、Twitter/X、JoyReactorなどが含まれます。完全なリスト：</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">gallery-dl対応サイト</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">gallery-dl対応サイト</a>
 </blockquote>
 """
     HELP_MSG = """
