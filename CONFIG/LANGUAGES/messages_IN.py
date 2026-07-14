@@ -61,7 +61,7 @@ class Messages(object):
 (आपके प्रॉम्प्ट द्वारा खोज परिणामों से पहले 3 वीडियो डाउनलोड करता है)
 
 और इसी तरह...
-<a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">समर्थित साइटों की सूची</a> देखें
+<a href=\"https://globalxdownloaderbot.vercel.app/">समर्थित साइटों की सूची</a> देखें
 </blockquote>
 
 <blockquote expandable>🖼 <b>छवियां (gallery-dl)</b>
@@ -79,7 +79,7 @@ class Messages(object):
 <code>/img 11- https://example.com/album</code> — 11 से अंत तक (या बॉट सीमा)
 
 <i>समर्थित प्लेटफॉर्म में vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor, आदि शामिल हैं। पूरी सूची:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">gallery-dl समर्थित साइटें</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">gallery-dl समर्थित साइटें</a>
 </blockquote>
 """
     HELP_MSG = """
