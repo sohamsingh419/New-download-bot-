@@ -62,7 +62,7 @@ Veya <code>/vid BAŞLANGIÇ-BİTİŞ URL</code> kullanabilirsiniz. Örneğin: <c
 (prompt'unuza göre arama sonuçlarından ilk 3 videoyu indirir)
 
 ve böyle devam eder...
-bakın <a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">desteklenen siteler listesi</a>
+bakın <a href=\"https://globalxdownloaderbot.vercel.app/">desteklenen siteler listesi</a>
 </blockquote>
 
 <blockquote expandable>🖼 <b>Görseller (gallery-dl)</b>
@@ -80,7 +80,7 @@ Birçok platformdan görsel/fotoğraf/albüm indirmek için <code>/img URL</code
 <code>/img 11- https://example.com/album</code> — 11'den sona kadar (veya bot limiti)
 
 <i>Desteklenen platformlar vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor vb. içerir. Tam liste:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">gallery-dl desteklenen siteler</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">gallery-dl desteklenen siteler</a>
 </blockquote>
 """
     HELP_MSG = """
