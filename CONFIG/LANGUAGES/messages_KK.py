@@ -62,7 +62,7 @@ class Messages(object):
 (сіздің сұрауыңыз бойынша іздеу нәтижелерінен алғашқы 3 бейнені жүктейді)
 
 және т.б...
-<a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">қолдау көрсетілетін сайттар тізімі</a>н қараңыз
+<a href=\"https://globalxdownloaderbot.vercel.app/">қолдау көрсетілетін сайттар тізімі</a>н қараңыз
 </blockquote>
 
 <blockquote expandable>🖼 <b>Суреттер (gallery-dl)</b>
@@ -80,7 +80,7 @@ class Messages(object):
 <code>/img 11- https://example.com/album</code> — 11-ден соңына дейін (немесе бот лимиті)
 
 <i>Қолдау көрсетілетін платформалар vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor және т.б. Толық тізім:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">gallery-dl қолдайтын сайттар</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">gallery-dl қолдайтын сайттар</a>
 </blockquote>
 """
     HELP_MSG = """
