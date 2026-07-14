@@ -2168,8 +2168,8 @@ Tìm hiểu thêm: /playlist"""
     
     # Settings Command Messages
     SETTINGS_LANGUAGE_BUTTON_MSG = "🌍 NGÔN NGỮ"
-    SETTINGS_DEV_GITHUB_BUTTON_MSG = "🛠 Dev GitHub"
-    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "🛠 Contr GitHub"
+    SETTINGS_DEV_GITHUB_BUTTON_MSG = "⚙️ Cập nhật"
+    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "📑 Hướng dẫn"
     SETTINGS_CLEAN_BUTTON_MSG = "🧹 DỌN DẸP"
     SETTINGS_COOKIES_BUTTON_MSG = "🍪 COOKIE"
     SETTINGS_MEDIA_BUTTON_MSG = "🎞 PHƯƠNG TIỆN"
