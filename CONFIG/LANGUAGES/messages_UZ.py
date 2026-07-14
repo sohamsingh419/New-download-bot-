@@ -62,7 +62,7 @@ Yoki <code>/vid DAN-GACHA URL</code> dan foydalanishingiz mumkin. Masalan: <code
 (sizning so'rovingiz bo'yicha qidiruv natijalaridan birinchi 3 ta videoni yuklaydi)
 
 va hokazo...
-<a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">qo'llab-quvvatlanadigan saytlar ro'yxati</a>ni ko'ring
+<a href=\"https://globalxdownloaderbot.vercel.app/">qo'llab-quvvatlanadigan saytlar ro'yxati</a>ni ko'ring
 </blockquote>
 
 <blockquote expandable>🖼 <b>Rasmlar (gallery-dl)</b>
@@ -80,7 +80,7 @@ Ko'plab platformalardan rasmlar/fotolar/albomlarni yuklab olish uchun <code>/img
 <code>/img 11- https://example.com/album</code> — 11 dan oxirigacha (yoki bot limiti)
 
 <i>Qo'llab-quvvatlanadigan platformalar vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor va boshqalarni o'z ichiga oladi. To'liq ro'yxat:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">gallery-dl tomonidan qo'llab-quvvatlanadigan saytlar</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">gallery-dl tomonidan qo'llab-quvvatlanadigan saytlar</a>
 </blockquote>
 """
     HELP_MSG = """
