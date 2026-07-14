@@ -2168,8 +2168,8 @@ Use:
     
     # Settings Command Messages
     SETTINGS_LANGUAGE_BUTTON_MSG = "🌍 زبان"
-    SETTINGS_DEV_GITHUB_BUTTON_MSG = "🛠 دیو گٹ ہب"
-    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "🛠 contr Github"
+    SETTINGS_DEV_GITHUB_BUTTON_MSG = "⚙️ اپ ڈیٹ"
+    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "📑 رہنما"
     SETTINGS_CLEAN_BUTTON_MSG = "🧹 صاف"
     SETTINGS_COOKIES_BUTTON_MSG = "🍪 کوکیز"
     SETTINGS_MEDIA_BUTTON_MSG = "🎞 میڈیا"
