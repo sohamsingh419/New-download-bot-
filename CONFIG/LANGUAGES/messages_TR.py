@@ -2168,8 +2168,8 @@ Daha fazla bilgi: /playlist"""
     
     # Settings Command Messages
     SETTINGS_LANGUAGE_BUTTON_MSG = "🌍 DİL"
-    SETTINGS_DEV_GITHUB_BUTTON_MSG = "🛠 Geliştirici GitHub"
-    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "🛠 GitHub'ı Kontrol Et"
+    SETTINGS_DEV_GITHUB_BUTTON_MSG = "⚙️ Güncelleme"
+    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "📑 Rehber"
     SETTINGS_CLEAN_BUTTON_MSG = "🧹 TEMİZ"
     SETTINGS_COOKIES_BUTTON_MSG = "🍪ÇEREZLER"
     SETTINGS_MEDIA_BUTTON_MSG = "🎞 MEDYA"
