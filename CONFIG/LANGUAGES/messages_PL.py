@@ -2107,8 +2107,8 @@ Dowiedz się więcej: /playlist"""
     
     # Settings Command Messages
     SETTINGS_LANGUAGE_BUTTON_MSG = "🌍 JĘZYK"
-    SETTINGS_DEV_GITHUB_BUTTON_MSG = "🛠 Dev GitHub"
-    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "🛠 Contr GitHub"
+    SETTINGS_DEV_GITHUB_BUTTON_MSG = "⚙️ Aktualizacja"
+    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "📑 Przewodnik"
     SETTINGS_CLEAN_BUTTON_MSG = "🧹 CZYŚĆ"
     SETTINGS_COOKIES_BUTTON_MSG = "🍪 COOKIE"
     SETTINGS_MEDIA_BUTTON_MSG = "🎞 MEDIA"
