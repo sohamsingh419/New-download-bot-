@@ -62,7 +62,7 @@ class Messages(object):
 (3 ویدیوی اول از نتایج جستجو بر اساس درخواست شما را دانلود می‌کند)
 
 و غیره...
-<a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">لیست سایت‌های پشتیبانی شده</a> را ببینید
+<a href=\"https://globalxdownloaderbot.vercel.app/">لیست سایت‌های پشتیبانی شده</a> را ببینید
 </blockquote>
 
 <blockquote expandable>🖼 <b>تصاویر (gallery-dl)</b>
@@ -80,7 +80,7 @@ class Messages(object):
 <code>/img 11- https://example.com/album</code> — از 11 تا انتها (یا محدودیت ربات)
 
 <i>پلتفرم‌های پشتیبانی شده شامل vk، 2ch، 35photo، 4chan، 500px، ArtStation، Boosty، Civitai، Cyberdrop، DeviantArt، Discord، Facebook، Fansly، Instagram، Pinterest، Reddit، TikTok، Tumblr، Twitter/X، JoyReactor و غیره است. لیست کامل:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">سایت‌های پشتیبانی شده توسط gallery-dl</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">سایت‌های پشتیبانی شده توسط gallery-dl</a>
 </blockquote>
 """
     HELP_MSG = """
