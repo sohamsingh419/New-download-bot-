@@ -173,8 +173,8 @@ Gamitin ang <code>/img URL</code> upang mag-download ng mga larawan/photo/album 
         "</pre>\n"
         "<blockquote>"
         "<b><u>Mga Tagubilin:</u></b>\n"
-        "https://t.me/tg_ytdlp/203 \n"
-        "https://t.me/tg_ytdlp/214 "
+        "https://t.me/Globall_X \n"
+        "https://t.me/Globall_X "
         "</blockquote>"
     )
     
