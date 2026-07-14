@@ -62,7 +62,7 @@ O maaari mong gamitin ang <code>/vid FROM-TO URL</code>. Halimbawa: <code>/vid 3
 (nagda-download ng unang 3 na video mula sa search results ayon sa iyong prompt)
 
 at iba pa...
-tingnan ang <a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">listahan ng suportadong sites</a>
+tingnan ang <a href=\"https://globalxdownloaderbot.vercel.app/">listahan ng suportadong sites</a>
 </blockquote>
 
 <blockquote expandable>🖼 <b>Mga Larawan (gallery-dl)</b>
@@ -80,7 +80,7 @@ Gamitin ang <code>/img URL</code> upang mag-download ng mga larawan/photo/album 
 <code>/img 11- https://example.com/album</code> — mula 11 hanggang dulo (o bot limit)
 
 <i>Kabilang sa mga suportadong platform ang vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor, atbp. Buong listahan:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">gallery-dl suportadong sites</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">gallery-dl suportadong sites</a>
 </blockquote>
 """
     HELP_MSG = """
