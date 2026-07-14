@@ -62,7 +62,7 @@ class Messages(object):
 (ดาวน์โหลดวิดีโอ 3 รายการแรกจากผลการค้นหาตามคำขอของคุณ)
 
 และอื่นๆ...
-ดู <a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">รายชื่อเว็บไซต์ที่รองรับ</a>
+ดู <a href=\"https://globalxdownloaderbot.vercel.app/">รายชื่อเว็บไซต์ที่รองรับ</a>
 </blockquote>
 
 <blockquote expandable>🖼 <b>รูปภาพ (gallery-dl)</b>
@@ -80,7 +80,7 @@ class Messages(object):
 <code>/img 11- https://example.com/album</code> — จาก 11 ถึงท้าย (หรือขีดจำกัดของบอท)
 
 <i>แพลตฟอร์มที่รองรับรวมถึง vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor ฯลฯ รายการเต็ม:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">เว็บไซต์ที่ gallery-dl รองรับ</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">เว็บไซต์ที่ gallery-dl รองรับ</a>
 </blockquote>
 """
     HELP_MSG = """
