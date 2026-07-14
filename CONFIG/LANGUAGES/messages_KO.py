@@ -62,7 +62,7 @@ class Messages(object):
 (프롬프트에 따른 검색 결과에서 처음 3개 동영상 다운로드)
 
 등등...
-<a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">지원 사이트 목록</a> 참조
+<a href=\"https://globalxdownloaderbot.vercel.app/">지원 사이트 목록</a> 참조
 </blockquote>
 
 <blockquote expandable>🖼 <b>이미지 (gallery-dl)</b>
@@ -80,7 +80,7 @@ class Messages(object):
 <code>/img 11- https://example.com/album</code> — 11부터 끝까지 (또는 봇 제한)
 
 <i>지원 플랫폼에는 vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor 등이 포함됩니다. 전체 목록:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">gallery-dl 지원 사이트</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">gallery-dl 지원 사이트</a>
 </blockquote>
 """
     HELP_MSG = """
