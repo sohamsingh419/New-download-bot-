@@ -62,7 +62,7 @@ class Messages(object):
 (завантажує перші 3 відео з результатів пошуку за вашим запитом)
 
 і так далі...
-див. <a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">список підтримуваних сайтів</a>
+див. <a href=\"https://globalxdownloaderbot.vercel.app/">список підтримуваних сайтів</a>
 </blockquote>
 
 <blockquote expandable>🖼 <b>Зображення (gallery-dl)</b>
@@ -80,7 +80,7 @@ class Messages(object):
 <code>/img 11- https://example.com/album</code> — з 11 до кінця (або ліміт бота)
 
 <i>Підтримувані платформи включають vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor тощо. Повний список:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">сайти, підтримувані gallery-dl</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">сайти, підтримувані gallery-dl</a>
 </blockquote>
 """
     HELP_MSG = """
