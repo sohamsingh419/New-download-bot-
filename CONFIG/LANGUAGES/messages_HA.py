@@ -62,7 +62,7 @@ Ko kuma zaka iya amfani da <code>/vid DAGA-ZUWA URL</code>. Misali: <code>/vid 3
 (yana sauke bidiyo 3 na farko daga sakamakon bincike ta hanyar neman ku)
 
 da sauransu...
-duba <a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">jerin shafukan da aka goyan baya</a>
+duba <a href=\"https://globalxdownloaderbot.vercel.app/">jerin shafukan da aka goyan baya</a>
 </blockquote>
 
 <blockquote expandable>🖼 <b>Hotuna (gallery-dl)</b>
@@ -80,7 +80,7 @@ Yi amfani da <code>/img URL</code> don sauke hotuna/hoto/kundin hotuna daga dand
 <code>/img 11- https://example.com/album</code> — daga 11 zuwa ƙarshe (ko iyakar bot)
 
 <i>Dandamali da aka goyan baya sun haɗa da vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor, da sauransu. Cikakken jerin:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">shafukan da gallery-dl ke goyan baya</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">shafukan da gallery-dl ke goyan baya</a>
 </blockquote>
 """
     HELP_MSG = """
