@@ -62,7 +62,7 @@ class Messages(object):
 (আপনার প্রম্পট দ্বারা অনুসন্ধান ফলাফল থেকে প্রথম 3টি ভিডিও ডাউনলোড করে)
 
 এবং আরও...
-দেখুন <a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">সমর্থিত সাইটের তালিকা</a>
+দেখুন <a href=\"https://globalxdownloaderbot.vercel.app/">সমর্থিত সাইটের তালিকা</a>
 </blockquote>
 
 <blockquote expandable>🖼 <b>ইমেজ (gallery-dl)</b>
@@ -80,7 +80,7 @@ class Messages(object):
 <code>/img 11- https://example.com/album</code> — 11 থেকে শেষ পর্যন্ত (বা বট সীমা)
 
 <i>সমর্থিত প্ল্যাটফর্মগুলির মধ্যে রয়েছে vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor, ইত্যাদি। সম্পূর্ণ তালিকা:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">gallery-dl সমর্থিত সাইট</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">gallery-dl সমর্থিত সাইট</a>
 </blockquote>
 """
     HELP_MSG = """
