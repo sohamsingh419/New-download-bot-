@@ -152,8 +152,8 @@ Użyj <code>/img URL</code>, aby pobrać obrazy/zdjęcia/albumy z wielu platform
 • <code>/img 11-20 URL</code> → pobierz określony zakres
 • <code>/img 11- URL</code> → pobierz od 11. do końca
 
-👨‍💻 <i>Deweloper:</i> @upekshaip
-🤝 <i>Współautor:</i> @IIlIlIlIIIlllIIlIIlIllIIllIlIIIl
+👨‍💻 <i>Deweloper:</i> @Global_X_SohaN
+🤝 <i>Współautor:</i> @Global_X_HIM
 </blockquote>
     """
     
@@ -265,12 +265,12 @@ Dodaj moje boty do swoich grup, aby uzyskać ulepszone funkcje i wyższe limity!
 ————————————
 💰 <b>Cennik i Konfiguracja:</b>
 <blockquote>• Cena: <b>$5/miesiąc</b> za 1 bota w grupie
-• Konfiguracja: Skontaktuj się z @iilililiiillliiliililliilliliiil
+• Konfiguracja: Skontaktuj się z @Global_X_SohaN
 • Płatność: 💎TON lub inne metody💲
 • Wsparcie: Pełne wsparcie techniczne wliczone</blockquote>
 ————————————
 Możesz dodać moje boty do swojej grupy, aby odblokować darmowe 🔞<b>NSFW</b> i podwoić (x2️⃣) wszystkie limity.
-Skontaktuj się ze mną, jeśli chcesz, abym zezwolił twojej grupie na używanie moich botów @iilililiiillliiliililliilliliiil
+Skontaktuj się ze mną, jeśli chcesz, abym zezwolił twojej grupie na używanie moich botów @Global_X_SohaN
 ————————————
 💡<b>WSKAZÓWKA:</b> <blockquote>Możesz złożyć się z dowolną liczbą przyjaciół (na przykład 100 osób) i zrobić 1 zakup dla całej grupy - WSZYSCY CZŁONKOWIE GRUPY BĘDĄ MIEĆ PEŁNY NIELIMITOWANY DOSTĘP do wszystkich funkcji botów w tej grupie za tylko <b>0.05$</b></blockquote>
     """
