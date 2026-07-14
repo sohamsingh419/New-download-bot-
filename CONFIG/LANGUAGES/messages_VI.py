@@ -62,7 +62,7 @@ Hoặc bạn có thể sử dụng <code>/vid TỪ-ĐẾN URL</code>. Ví dụ: 
 (tải xuống 3 video đầu tiên từ kết quả tìm kiếm theo prompt của bạn)
 
 và vân vân...
-xem <a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">danh sách trang web được hỗ trợ</a>
+xem <a href=\"https://globalxdownloaderbot.vercel.app/">danh sách trang web được hỗ trợ</a>
 </blockquote>
 
 <blockquote expandable>🖼 <b>Hình ảnh (gallery-dl)</b>
@@ -80,7 +80,7 @@ Sử dụng <code>/img URL</code> để tải xuống hình ảnh/ảnh/album t�
 <code>/img 11- https://example.com/album</code> — từ 11 đến cuối (hoặc giới hạn bot)
 
 <i>Các nền tảng được hỗ trợ bao gồm vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReactor, v.v. Danh sách đầy đủ:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">các trang web được gallery-dl hỗ trợ</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">các trang web được gallery-dl hỗ trợ</a>
 </blockquote>
 """
     HELP_MSG = """
