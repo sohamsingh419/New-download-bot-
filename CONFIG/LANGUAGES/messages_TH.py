@@ -2168,8 +2168,8 @@ class Messages(object):
     
     # Settings Command Messages
     SETTINGS_LANGUAGE_BUTTON_MSG = "🌍 ภาษา"
-    SETTINGS_DEV_GITHUB_BUTTON_MSG = "🛠 Dev GitHub"
-    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "🛠 ควบคุม GitHub"
+    SETTINGS_DEV_GITHUB_BUTTON_MSG = "⚙️ อัปเดต"
+    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "📑 คู่มือ"
     SETTINGS_CLEAN_BUTTON_MSG = "🧹 สะอาด"
     SETTINGS_COOKIES_BUTTON_MSG = "🍪 คุกกี้"
     SETTINGS_MEDIA_BUTTON_MSG = "🎞 สื่อ"
