@@ -2174,8 +2174,8 @@ class Messages(object):
     
     # Settings Command Messages
     SETTINGS_LANGUAGE_BUTTON_MSG = "🌍 اللغة"
-    SETTINGS_DEV_GITHUB_BUTTON_MSG = "🛠 GitHub المطور"
-    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "🛠 GitHub المساهم"
+    SETTINGS_DEV_GITHUB_BUTTON_MSG = "⚙️ التحديث"
+    SETTINGS_CONTR_GITHUB_BUTTON_MSG = "📑 الدليل'"
     SETTINGS_CLEAN_BUTTON_MSG = "🧹 تنظيف"
     SETTINGS_COOKIES_BUTTON_MSG = "🍪 ملفات تعريف الارتباط"
     SETTINGS_MEDIA_BUTTON_MSG = "🎞 الوسائط"
