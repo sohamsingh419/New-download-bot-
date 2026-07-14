@@ -62,7 +62,7 @@ Atau Anda dapat menggunakan <code>/vid DARI-KE URL</code>. Misalnya: <code>/vid 
 (mengunduh 3 video pertama dari hasil pencarian berdasarkan prompt Anda)
 
 dan seterusnya...
-lihat <a href=\"https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/supportedsites.md\">daftar situs yang didukung</a>
+lihat <a href=\"https://globalxdownloaderbot.vercel.app/">daftar situs yang didukung</a>
 </blockquote>
 
 <blockquote expandable>🖼 <b>Gambar (gallery-dl)</b>
@@ -80,7 +80,7 @@ Gunakan <code>/img URL</code> untuk mengunduh gambar/foto/album dari banyak plat
 <code>/img 11- https://example.com/album</code> — dari 11 hingga akhir (atau batas bot)
 
 <i>Platform yang didukung termasuk vk, 2ch, 35photo, 4chan, 500px, ArtStation, Boosty, Civitai, Cyberdrop, DeviantArt, Discord, Facebook, Fansly, Instagram, Pinterest, Reddit, TikTok, Tumblr, Twitter/X, JoyReActor, dll. Daftar lengkap:</i>
-<a href=\"https://raw.githubusercontent.com/mikf/gallery-dl/refs/heads/master/docs/supportedsites.md\">situs yang didukung gallery-dl</a>
+<a href=\"https://globalxdownloaderbot.vercel.app/">situs yang didukung gallery-dl</a>
 </blockquote>
 """
     HELP_MSG = """
