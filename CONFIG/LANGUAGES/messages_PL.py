@@ -9,8 +9,8 @@ class Messages(object):
     #######################################################
     # Messages and errors
     #######################################################
-    CREDITS_MSG = "<blockquote><i>Zarządzane przez</i></blockquote>\n<b>🌍 Zmień język: /lang</b>"
-    TO_USE_MSG = "<i>Aby użyć tego bota, musisz zasubskrybować kanał Telegram @tg_ytdlp.</i>\nPo dołączeniu do kanału, <b>wyślij ponownie link do filmu, a bot pobierze go dla Ciebie</b> ❤️\n\n<blockquote>P.S. Pobieranie treści 🔞NSFW i plików z ☁️Cloud Storage jest płatne! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Nie opuszczaj kanału - zostaniesz zbanowany z używania bota ⛔️</blockquote>"
+    CREDITS_MSG = "<blockquote><i>Zarządzane przez</i> @Global_X_SohaN\n💟 @Globall_X\n💌 @lolspot\n💖@FalleN_loveE\n🤖Contributor - @Global_X_HiM</blockquote>\n<b>🌍 Zmień język: /lang</b>"
+    TO_USE_MSG = "<i>Aby użyć tego bota, musisz zasubskrybować kanał Telegram @Globall_X.</i>\nPo dołączeniu do kanału, <b>wyślij ponownie link do filmu, a bot pobierze go dla Ciebie</b> ❤️\n\n<blockquote>P.S. Pobieranie treści 🔞NSFW i plików z ☁️Cloud Storage jest płatne! 1⭐️ = $0.02</blockquote>\n<blockquote>P.P.S. ‼️ Nie opuszczaj kanału - zostaniesz zbanowany z używania bota ⛔️</blockquote>"
 
     ERROR1 = "Nie znaleziono linku URL. Proszę wprowadzić URL z <b>https://</b> lub <b>http://</b>"
 
