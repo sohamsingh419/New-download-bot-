@@ -67,7 +67,7 @@ def get_video_formats(url, user_id=None, playlist_start_index=1, cookies_already
                 'skip': ['authcheck']
             },
             'youtube': {
-                'player_client': ['tv_embedded', 'mweb', 'tv_simply']
+                'player_client': ['web', 'android', 'ios']
             }
         },
         'referer': url,
