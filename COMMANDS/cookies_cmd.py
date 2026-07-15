@@ -1905,7 +1905,7 @@ def is_youtube_cookie_error(error_message: str) -> bool:
         'sign in', 'login required', 'age restricted', 'cookies', 
         'authentication', 'format not found', 'no formats found', 'unable to extract', 
         'http error 403', 'http error 401', 'forbidden', 'unauthorized', 'access denied',
-        'subscription required'
+        'subscription required', 'requested format is not available', 'use --list-formats'
     ]
     
     return any(keyword in error_lower for keyword in cookie_related_keywords)
