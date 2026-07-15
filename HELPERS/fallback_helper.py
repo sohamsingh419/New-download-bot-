@@ -42,6 +42,8 @@ def should_fallback_to_gallery_dl(error_message: str, url: str) -> bool:
         "quota exceeded",
         
         # Ошибки формата контента
+        "extracted extension",  # yt-dlp rejects Snapchat/unusual URL tokens as file extensions
+        "unusual and will be skipped for safety",  # same yt-dlp safety check
         "no videos found in playlist",
         "unsupported url",
         "no video could be found", 
