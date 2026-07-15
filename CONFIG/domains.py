@@ -109,7 +109,9 @@ class DomainsConfig(object):
         'gelbooru.com', 'girlswithmuscle.com', 'itaku.ee', 'kemono.cr', 'kemono.party',
         'coomer.party', 'leakgallery.com', 'myportfolio.com', 'nekohouse.su',
         'nhentai.net', 'photovogue.com', 'pixeltabel.com', 'weasyl.com', 'wikifeet.com',
-        'xasiat.com', 'wallhaven.cc'
+        'xasiat.com', 'wallhaven.cc',
+        # Snapchat - yt-dlp incorrectly extracts URL tokens as file extensions for Spotlight URLs
+        'snapchat.com',
     ]
 
     GALLERYDL_ONLY_PATH = [
