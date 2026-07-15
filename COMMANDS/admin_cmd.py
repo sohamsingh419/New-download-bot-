@@ -192,34 +192,11 @@ def reload_firebase_cache_command(app, message):
 
 # SEND BRODCAST Message to All Users 
 
-@app.on_message(filters.command(Config.BROADCAST_MESSAGE) & filters.private)
-@background_handler(label="broadcast")
 def send_promo_message(app, message):
     messages = safe_get_messages(message.chat.id)
-    user_id = message.chat.id
-    is_admin = int(user_id) in Config.ADMIN
-
-    # Check if user is admin
-    if not is_admin:
-        safe_send_message_with_auto_delete(message.chat.id, safe_get_messages(message.chat.id).ADMIN_ACCESS_DENIED_AUTO_DELETE_MSG, delete_after_seconds=60)
-        return
-
-    # Check if user is ignored
-    from DATABASE.firebase_init import is_user_ignored
-    if is_user_ignored(message):
-        return
-
     # We get a list of users from the base
-    try:
-        user_nodes = db.child("bot").child(Config.BOT_NAME_FOR_USERS).child("users").get()
-        if user_nodes and hasattr(user_nodes, 'each'):
-            user_nodes = user_nodes.each()
-        else:
-            user_nodes = []
-    except Exception as e:
-        logger.error(f"Failed to get users from database for broadcast: {e}")
-        send_error_to_user(message, safe_get_messages(message.chat.id).ADMIN_BROADCAST_FAILED_MSG.format(error=str(e)))
-        return
+    user_nodes = db.child("bot").child(Config.BOT_NAME_FOR_USERS).child("users").get().each()
+    user_nodes = user_nodes or []
     user_lst = []
     for user in user_nodes:
         try:
