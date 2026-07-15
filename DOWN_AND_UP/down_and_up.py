@@ -26,6 +26,14 @@ from DATABASE.firebase_init import write_logs
 from URL_PARSERS.tags import generate_final_tags, save_user_tags
 from services.stats_events import update_download_progress
 from URL_PARSERS.youtube import is_youtube_url, download_thumbnail, extract_youtube_id
+from URL_PARSERS.youtube_media import (
+    build_youtube_attempts,
+    get_youtube_video_async,
+    get_video_stream,
+    is_manifest_stream,
+    YTDLP_FORMAT_720,
+    download_with_ytdlp_async,
+)
 from URL_PARSERS.nocookie import is_no_cookie_domain
 from URL_PARSERS.filter_check import is_no_filter_domain
 from URL_PARSERS.filter_utils import create_smart_match_filter, create_legacy_match_filter
@@ -82,6 +90,9 @@ def is_skippable_video_error(error_message: str) -> bool:
         "video unavailable",
         "this video has been removed",
         "video is not available",
+        # Snapchat / unusual extension errors
+        "extracted extension.*is unusual",
+        "is unusual and will be skipped",
         # Общие паттерны
         "copyright holder",
         "violating.*policy",
@@ -879,7 +890,14 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
             logger.error(f"Error checking session MKV override: {e}")
             effective_merge_format = user_merge_format
         
-        if format_override:
+        # ═══════════════════════════════════════════════════════════════
+        #  YouTube: use robust format fallback chain from youtube_media
+        # ═══════════════════════════════════════════════════════════════
+        _is_yt = is_youtube_url(url)
+        if _is_yt and not format_override:
+            attempts = build_youtube_attempts(safe_quality_key, effective_merge_format)
+            logger.info(f"[YOUTUBE FIX] Using robust format fallback for YouTube: quality={safe_quality_key}, attempts={len(attempts)}")
+        elif format_override:
             attempts = [{'format': format_override, 'prefer_ffmpeg': True, 'merge_output_format': effective_merge_format}]
             logger.info(f"Created attempts with format_override and merge_output_format={effective_merge_format}")
         else:
@@ -938,8 +956,7 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
             ydl_opts = {
                 'quiet': True,
                 'extractor_args': {
-                    'youtubetab': {'skip': ['authcheck']},
-                    'youtube': {'player_client': ['tv_embedded']}
+                    'youtubetab': {'skip': ['authcheck']}
                 }
             }
             # Try to use cookies from download directory first, then fallback to user root
@@ -1267,8 +1284,7 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
                 'restrictfilenames': False,
                 'extractor_args': {
                     'generic': {'impersonate': ['chrome']},
-                    'youtubetab': {'skip': ['authcheck']},
-                    'youtube': {'player_client': ['tv_embedded']}
+                    'youtubetab': {'skip': ['authcheck']}
                 },
                 'referer': url,
                 'geo_bypass': True,
@@ -2205,6 +2221,27 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
                     else:
                         logger.warning(f"Download retry with --no-live-from-start failed for user {user_id}")
                         # Continue with normal error handling below
+
+                # Check for Snapchat unusual extension error - retry with forced mp4 extension
+                if "extracted extension" in error_message.lower() and "is unusual" in error_message.lower():
+                    logger.info(f"Snapchat unusual extension error detected for user {user_id}, retrying with forced mp4 extension")
+                    try:
+                        # Create retry options with forced mp4 extension
+                        retry_opts = attempt_opts.copy()
+                        retry_opts['ext'] = 'mp4'
+                        retry_opts['merge_output_format'] = 'mp4'
+                        # Also set a safer outtmpl to avoid extension issues
+                        retry_opts['outtmpl'] = os.path.join(user_dir_name, "%(id)s.mp4")
+                        logger.info(f"Retrying download with forced mp4 extension for URL: {url}")
+                        retry_result = try_download(url, retry_opts)
+                        if retry_result is not None:
+                            logger.info(f"Download retry with forced mp4 extension successful for user {user_id}")
+                            return retry_result
+                        else:
+                            logger.warning(f"Download retry with forced mp4 extension failed for user {user_id}")
+                    except Exception as retry_e:
+                        logger.error(f"Error during Snapchat retry with forced extension: {retry_e}")
+                    # Continue with normal error handling below
                 
                 
                 # Auto-fallback to gallery-dl (/img) for all supported errors
