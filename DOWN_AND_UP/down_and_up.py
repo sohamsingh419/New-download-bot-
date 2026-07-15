@@ -2667,7 +2667,8 @@ def down_and_up(app, message, url, playlist_name, video_count, video_start_with,
                     result = try_download(url, attempt)
                     
                     # If download failed and it's a YouTube URL, try automatic cookie retry
-                    if result is None and is_youtube_url(url) and not did_cookie_retry:
+                    # Also retry on FORMAT_NOT_AVAILABLE — alternative player clients may return different formats
+                    if (result is None or result == 'FORMAT_NOT_AVAILABLE') and is_youtube_url(url) and not did_cookie_retry:
                         logger.info(f"Video download failed for user {user_id}, attempting automatic cookie retry")
                         
                         # Try retry with different cookies
