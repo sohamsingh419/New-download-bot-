@@ -1153,7 +1153,7 @@ def test_youtube_cookies_on_url(cookie_file_path: str, url: str, user_id: int | 
             'ignore_no_formats_error': True,
             'cookiefile': cookie_file_path,
             'extractor_args': {
-                'youtube': {'player_client': ['tv_embedded', 'mweb', 'tv_simply']}
+                'youtube': {'player_client': ['web', 'android', 'ios']}
             },
             'retries': 2,
             'extractor_retries': 1,
@@ -1237,7 +1237,7 @@ def test_youtube_cookies(cookie_file_path: str, user_id: int | None = None) -> b
             'ignore_no_formats_error': True,  # Ignore format errors - we only check if info is extractable
             'cookiefile': cookie_file_path,
             'extractor_args': {
-                'youtube': {'player_client': ['tv_embedded', 'mweb', 'tv_simply']}
+                'youtube': {'player_client': ['web', 'android', 'ios']}
             },
             'retries': 3,
             'extractor_retries': 2,
@@ -1370,7 +1370,7 @@ def test_youtube_cookies(cookie_file_path: str, user_id: int | None = None) -> b
                     'ignore_no_formats_error': True,
                     'cookiefile': cookie_file_path,
                     'extractor_args': {
-                        'youtube': {'player_client': ['tv_embedded', 'mweb', 'tv_simply']}
+                        'youtube': {'player_client': ['web', 'android', 'ios']}
                     },
                     'retries': 2,
                     'extractor_retries': 1,
