@@ -134,7 +134,7 @@ def audio_command_handler(app, message):
         return
     
     # Note: cached_video_info=None for direct calls (no optimization available)
-    down_and_audio(app, message, url, tags, quality_key="mp3", playlist_name=playlist_name, video_count=video_count, video_start_with=video_start_with, format_override="ba", cached_video_info=None)
+    down_and_audio(app, message, url, tags, quality_key="mp3", playlist_name=playlist_name, video_count=video_count, video_start_with=video_start_with, format_override="ba/b", cached_video_info=None)
 
 
 # /Link Command
