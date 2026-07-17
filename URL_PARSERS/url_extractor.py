@@ -25,7 +25,7 @@ from COMMANDS.link_cmd import link_command
 from COMMANDS.image_cmd import image_command
 from COMMANDS.admin_cmd import get_user_log, send_promo_message, block_user, unblock_user, ignore_user, unignore_user, check_runtime, get_user_details, uncache_command, reload_firebase_cache_command, ban_time_command
 from DATABASE.cache_db import auto_cache_command
-from DATABASE.firebase_init import is_user_blocked, is_user_ignored
+from DATABASE.firebase_init import is_user_blocked, is_user_ignored, check_user as register_user_in_db
 import os
 from URL_PARSERS.video_extractor import video_url_extractor
 from URL_PARSERS.playlist_utils import is_playlist_with_range
@@ -130,6 +130,12 @@ def url_distractor(app, message):
     
     # Record user activity for 24/7 detection and timer interval detection
     record_user_activity(user_id, is_admin, message_text=text)
+
+    # Register user in the broadcast DB (so /broadcast reaches all users, not just admin)
+    try:
+        register_user_in_db(message)
+    except Exception:
+        pass
     
     # Check if user is in trim mode (waiting for timecode input)
     # If user sends a URL or command while in trim mode, clear trim mode
