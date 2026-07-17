@@ -1014,8 +1014,12 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
             _url_lower = url.lower()
             _is_combined_only = any(d in _url_lower for d in _combined_only_domains)
             if _is_combined_only:
-                download_format = 'best'
-                logger.info(f'[AUDIO] Combined-only platform detected, using best format: {url}')
+                # Prefer mp4 container so ffprobe can always read the codec.
+                # Instagram/TikTok/Facebook sometimes serve HEVC or AV1 in
+                # non-standard containers that ffprobe (and thus FFmpegExtractAudio)
+                # cannot parse.  Falling back to plain 'best' as last resort.
+                download_format = 'best[ext=mp4]/best'
+                logger.info(f'[AUDIO] Combined-only platform detected, using best[ext=mp4]/best format: {url}')
             else:
                 download_format = format_override if format_override else 'ba/b'
             
@@ -1093,6 +1097,16 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                'writesubtitles': False,  # Disable subtitles for audio
                'writeautomaticsub': False,  # Disable auto subtitles for audio
             }
+            
+            # For combined-only platforms force mp4 container on merge so
+            # ffprobe can always identify the audio codec before extraction.
+            if any(d in url.lower() for d in [
+                'instagram.com', 'pinterest.com', 'pin.it',
+                'tiktok.com', 'vm.tiktok.com', 'vt.tiktok.com',
+                'facebook.com', 'fb.watch', 'fb.com',
+            ]):
+                ytdl_opts['merge_output_format'] = 'mp4'
+                logger.info('[AUDIO] Forcing merge_output_format=mp4 for combined-only platform')
             
             # Add download_sections if trim is enabled
             if download_sections:
@@ -1526,6 +1540,13 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                         # If we can't verify file exists, log warning but don't stop - let normal error handling proceed
                         logger.warning("Thumbnail error detected but cannot verify file existence - letting normal error handling proceed")
                         # Don't return here - let it fall through to normal error handling
+                    
+                    # ffprobe codec detection failure -- common for Instagram/TikTok
+                    # reels encoded in HEVC or AV1.  Return POSTPROCESSING_ERROR so
+                    # the safe-filename retry path re-runs with mp4 container forced.
+                    if "unable to obtain file audio codec" in error_lower or "unable to obtain file codec" in error_lower:
+                        logger.warning(f"ffprobe codec detection failed (combined-only platform likely): {error_text[:200]}")
+                        return "POSTPROCESSING_ERROR"
                     
                     # Check for conversion failed errors (case-insensitive)
                     if "conversion failed" in error_lower:
