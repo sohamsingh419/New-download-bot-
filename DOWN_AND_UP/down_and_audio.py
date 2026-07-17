@@ -1376,8 +1376,23 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                                 ydl.download([url])
                         return True
                     
-                    from HELPERS.proxy_helper import try_with_proxy_fallback
-                    result = try_with_proxy_fallback(ytdl_opts, url, user_id, download_operation)
+                    # Combined-only platforms (Instagram, Pinterest, TikTok, Facebook)
+                    # have no audio-only streams. Sending them through the proxy
+                    # fallback loop just wastes time and hides the real error.
+                    # Call download_operation directly so the real yt-dlp
+                    # DownloadError is stored in last_download_error and can
+                    # later be re-raised to the detailed error handler.
+                    _combined_audio_domains = [
+                        'instagram.com', 'pinterest.com', 'pin.it',
+                        'tiktok.com', 'vm.tiktok.com', 'vt.tiktok.com',
+                        'facebook.com', 'fb.watch', 'fb.com',
+                    ]
+                    if any(d in url.lower() for d in _combined_audio_domains):
+                        logger.info(f'[AUDIO] Direct download (no proxy) for combined-only platform: {url}')
+                        result = download_operation(ytdl_opts)
+                    else:
+                        from HELPERS.proxy_helper import try_with_proxy_fallback
+                        result = try_with_proxy_fallback(ytdl_opts, url, user_id, download_operation)
                 except Exception as proxy_error:
                     last_download_error = str(proxy_error)
                     result = None
@@ -1389,7 +1404,20 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                         cycle_thread.join(timeout=1)
                 
                 if result is None:
-                    # Проверяем, является ли это гео-ошибкой YouTube, и пробуем прокси из файла
+                    # For combined-only platforms, re-raise the real error as
+                    # DownloadError so the detailed handler at line ~1439 fires
+                    # (gives cookie instructions etc.) instead of the generic
+                    # 'Failed to download video with all available proxies'.
+                    _combined_audio_domains2 = [
+                        'instagram.com', 'pinterest.com', 'pin.it',
+                        'tiktok.com', 'vm.tiktok.com', 'vt.tiktok.com',
+                        'facebook.com', 'fb.watch', 'fb.com',
+                    ]
+                    if any(d in url.lower() for d in _combined_audio_domains2) and last_download_error:
+                        logger.info(f'[AUDIO] Re-raising real error for combined-only platform: {last_download_error[:200]}')
+                        import yt_dlp as _yt_dlp_err
+                        raise _yt_dlp_err.utils.DownloadError(last_download_error)
+                    # Проверяем, является ли это гео-ошибкой YouTube, и пробуем пркси из файла
                     if is_youtube_url(url) and user_id is not None:
                         # Используем последнюю ошибку, если она есть
                         error_to_check = last_download_error if last_download_error else "Failed to download audio with all available proxies"
