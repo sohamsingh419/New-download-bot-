@@ -1542,10 +1542,23 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                         # Don't return here - let it fall through to normal error handling
                     
                     # ffprobe codec detection failure -- common for Instagram/TikTok
-                    # reels encoded in HEVC or AV1.  Return POSTPROCESSING_ERROR so
-                    # the safe-filename retry path re-runs with mp4 container forced.
+                    # reels encoded in HEVC or AV1.  This is a WARNING, not a hard
+                    # error: FFmpeg usually still extracts the audio successfully.
+                    # Check whether the audio file is already on disk; if so, return
+                    # None to let the normal upload path find and send it.  Only fall
+                    # back to POSTPROCESSING_ERROR when no file was produced.
                     if "unable to obtain file audio codec" in error_lower or "unable to obtain file codec" in error_lower:
-                        logger.warning(f"ffprobe codec detection failed (combined-only platform likely): {error_text[:200]}")
+                        logger.warning(f"ffprobe codec detection warning (non-fatal, checking disk): {error_text[:200]}")
+                        try:
+                            if os.path.exists(user_folder):
+                                _audio_exts = ('.mp3', '.m4a', '.opus', '.ogg', '.flac', '.wav', '.aac', '.mp4')
+                                _found = [f for f in os.listdir(user_folder) if f.lower().endswith(_audio_exts)]
+                                if _found:
+                                    logger.info(f"Audio file found on disk despite ffprobe warning: {_found[0]} -- proceeding with upload")
+                                    return None  # upload path will pick up the file
+                        except Exception as _disk_e:
+                            logger.debug(f"Disk check after ffprobe warning failed: {_disk_e}")
+                        logger.warning("No audio file on disk after ffprobe warning -- returning POSTPROCESSING_ERROR")
                         return "POSTPROCESSING_ERROR"
                     
                     # Check for conversion failed errors (case-insensitive)
