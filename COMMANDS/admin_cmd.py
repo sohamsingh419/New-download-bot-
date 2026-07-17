@@ -190,86 +190,126 @@ def reload_firebase_cache_command(app, message):
         log_error_to_channel(message, error_msg)
         send_to_logger(message, safe_get_messages(message.chat.id).ADMIN_ERROR_RELOADING_CACHE_LOG_MSG.format(error=str(e)))
 
-# SEND BRODCAST Message to All Users 
+# SEND BROADCAST Message to All Users
 
 def send_promo_message(app, message):
-    messages = safe_get_messages(message.chat.id)
-    # We get a list of users from the base
+    """Broadcast a message to all registered users.
+
+    Fixes applied vs original:
+    - message.text can be None (caption-based command) — use getattr safely
+    - Pyrogram Photo has .file_id directly, not .sizes[-1]
+    - AttributeError in reply handler no longer skips broadcast_text for that user
+    - FloodWait is caught and retried after sleeping the required seconds
+    - 50 ms sleep between sends to stay under Telegram rate limits
+    - Entire loop runs in a background thread so the bot stays responsive
+    """
+    import re as _re
+    from pyrogram.errors import FloodWait
+
+    # ── Build user list ──────────────────────────────────────────────────────
     user_nodes = db.child("bot").child(Config.BOT_NAME_FOR_USERS).child("users").get().each()
     user_nodes = user_nodes or []
     user_lst = []
-    for user in user_nodes:
+    for _u in user_nodes:
         try:
-            key = user.key()
+            key = _u.key()
             if key is not None:
-                user_lst.append(int(key))
+                uid = int(key)
+                if uid != 0:
+                    user_lst.append(uid)
         except Exception:
             continue
-    # Add administrators if they are not on the list
     for admin in Config.ADMIN:
-        if admin not in user_lst:
+        if admin and admin not in user_lst:
             user_lst.append(admin)
 
-    # We extract the text of Boadcast. If the message contains lines transfers, take all the lines after the first.
-    lines = message.text.splitlines()
+    # ── Extract broadcast text safely (message.text can be None) ─────────────
+    raw_text = getattr(message, 'text', None) or getattr(message, 'caption', '') or ''
+    lines = raw_text.splitlines()
     if len(lines) > 1:
         broadcast_text = "\n".join(lines[1:]).strip()
     else:
-        broadcast_text = message.text[len(Config.BROADCAST_MESSAGE):].strip()
+        broadcast_text = raw_text[len(Config.BROADCAST_MESSAGE):].strip()
 
-    # If the message is a reference, we get it
-    reply = message.reply_to_message if message.reply_to_message else None
+    # ── Replied-to message (optional) ────────────────────────────────────────
+    reply = getattr(message, 'reply_to_message', None)
 
     send_to_logger(message, safe_get_messages(message.chat.id).ADMIN_BROADCAST_INITIATED_LOG_MSG.format(broadcast_text=broadcast_text))
+    total = len(user_lst)
+    logger.info(f"[BROADCAST] Starting broadcast to {total} users")
 
-    try:
-        # We send a message to all users
-        for user in user_lst:
+    def _do_broadcast():
+        sent_count = 0
+        fail_count = 0
+
+        def _send_reply(uid):
+            """Send the replied-to content to one user. Returns True on success."""
+            if not reply:
+                return True
             try:
-                if user != 0:
-                    # If the message is a reference, send it (depending on the type of content)
-                    if reply:
-                        try:
-                            if reply.text:
-                                safe_send_message(user, reply.text)
-                            elif reply.video:
-                                app.send_video(user, reply.video.file_id, caption=reply.caption)
-                            elif reply.photo:
-                                try:
-                                    # Use supported API: take the largest available size's file_id
-                                    largest = reply.photo.sizes[-1] if getattr(reply.photo, 'sizes', None) else None
-                                    file_id = largest.file_id if largest else None
-                                except Exception:
-                                    file_id = None
-                                if file_id:
-                                    app.send_photo(user, file_id, caption=reply.caption)
-                                else:
-                                    # Fallback: try to forward original message with photo
-                                    try:
-                                        app.copy_message(chat_id=user, from_chat_id=message.chat.id, message_id=reply.id)
-                                    except Exception:
-                                        pass
-                            elif reply.sticker:
-                                app.send_sticker(user, reply.sticker.file_id)
-                            elif reply.document:
-                                app.send_document(user, reply.document.file_id, caption=reply.caption)
-                            elif reply.audio:
-                                app.send_audio(user, reply.audio.file_id, caption=reply.caption)
-                            elif reply.animation:
-                                app.send_animation(user, reply.animation.file_id, caption=reply.caption)
-                        except AttributeError as e:
-                            logger.error(safe_get_messages(message.chat.id).ADMIN_ERROR_PROCESSING_REPLY_MSG.format(user=user, error=e))
-                            continue
-                    # If there is an additional text, we send it
+                if reply.text:
+                    safe_send_message(uid, reply.text)
+                elif reply.video:
+                    app.send_video(uid, reply.video.file_id, caption=reply.caption)
+                elif reply.photo:
+                    # Pyrogram v2: Photo.file_id is directly on the object
+                    file_id = getattr(reply.photo, 'file_id', None)
+                    if file_id:
+                        app.send_photo(uid, file_id, caption=reply.caption)
+                    else:
+                        app.copy_message(chat_id=uid, from_chat_id=message.chat.id, message_id=reply.id)
+                elif reply.sticker:
+                    app.send_sticker(uid, reply.sticker.file_id)
+                elif reply.document:
+                    app.send_document(uid, reply.document.file_id, caption=reply.caption)
+                elif reply.audio:
+                    app.send_audio(uid, reply.audio.file_id, caption=reply.caption)
+                elif reply.animation:
+                    app.send_animation(uid, reply.animation.file_id, caption=reply.caption)
+                else:
+                    app.copy_message(chat_id=uid, from_chat_id=message.chat.id, message_id=reply.id)
+                return True
+            except AttributeError as exc:
+                logger.error(safe_get_messages(message.chat.id).ADMIN_ERROR_PROCESSING_REPLY_MSG.format(user=uid, error=exc))
+                return False
+
+        def _send_to_one(uid):
+            """Send both reply (if any) and broadcast text to one user with FloodWait handling."""
+            for attempt in range(2):
+                try:
+                    _send_reply(uid)
                     if broadcast_text:
-                        safe_send_message(user, broadcast_text)
-            except Exception as e:
-                logger.error(safe_get_messages(message.chat.id).ADMIN_ERROR_SENDING_BROADCAST_MSG.format(user=user, error=e))
-        send_to_all(message, safe_get_messages(message.chat.id).ADMIN_PROMO_SENT_MSG)
-        send_to_logger(message, safe_get_messages(message.chat.id).ADMIN_BROADCAST_SENT_LOG_MSG)
-    except Exception as e:
-        send_error_to_user(message, safe_get_messages(message.chat.id).ADMIN_CANNOT_SEND_PROMO_MSG)
-        send_to_logger(message, safe_get_messages(message.chat.id).ADMIN_BROADCAST_FAILED_LOG_MSG.format(error=str(e)))
+                        safe_send_message(uid, broadcast_text)
+                    return True
+                except FloodWait as fw:
+                    wait_secs = fw.value + 2
+                    logger.warning(f"[BROADCAST] FloodWait {wait_secs}s for user {uid}, attempt {attempt+1}")
+                    time.sleep(wait_secs)
+                except Exception as exc:
+                    logger.error(safe_get_messages(message.chat.id).ADMIN_ERROR_SENDING_BROADCAST_MSG.format(user=uid, error=exc))
+                    return False
+            return False
+
+        try:
+            for user in user_lst:
+                ok = _send_to_one(user)
+                if ok:
+                    sent_count += 1
+                else:
+                    fail_count += 1
+                # Respect Telegram rate limit: max ~20 msg/s for bots
+                time.sleep(0.05)
+
+            logger.info(f"[BROADCAST] Done — sent: {sent_count}, failed: {fail_count}")
+            send_to_all(message, safe_get_messages(message.chat.id).ADMIN_PROMO_SENT_MSG)
+            send_to_logger(message, safe_get_messages(message.chat.id).ADMIN_BROADCAST_SENT_LOG_MSG)
+        except Exception as exc:
+            send_error_to_user(message, safe_get_messages(message.chat.id).ADMIN_CANNOT_SEND_PROMO_MSG)
+            send_to_logger(message, safe_get_messages(message.chat.id).ADMIN_BROADCAST_FAILED_LOG_MSG.format(error=str(exc)))
+
+    # Run in background so the bot remains responsive during long broadcasts
+    t = threading.Thread(target=_do_broadcast, daemon=True)
+    t.start()
 
 
 # Getting the User Logs
