@@ -61,6 +61,7 @@ from pyrogram import enums
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import FloodWait
 from pyrogram.types import (
+    BotCommand,
     CallbackQuery,
     InlineKeyboardMarkup,
     InlineKeyboardButton,
@@ -481,6 +482,28 @@ signal.signal(signal.SIGTERM, signal_handler)
 
 if __name__ == "__main__":
     app.start()
+
+    # Register the bot command menu (shown when users tap "/" in the chat)
+    try:
+        app.set_bot_commands([
+            BotCommand("start",    "Start the bot"),
+            BotCommand("help",     "Show help & info"),
+            BotCommand("settings", "Open bot settings"),
+            BotCommand("format",   "Set video quality / format"),
+            BotCommand("audio",    "Extract audio only"),
+            BotCommand("subs",     "Download subtitles"),
+            BotCommand("split",    "Split video by file size"),
+            BotCommand("playlist", "Download a playlist"),
+            BotCommand("search",   "Search for videos"),
+            BotCommand("cookie",   "Upload / manage cookies"),
+            BotCommand("proxy",    "Configure proxy"),
+            BotCommand("clean",    "Delete your saved files"),
+            BotCommand("keyboard", "Customize reply keyboard"),
+        ])
+        print("✅ Bot command menu registered")
+    except Exception as e:
+        print(f"⚠️  Failed to register bot commands: {e}")
+
     start_channel_guard(app)
     idle()
     try:
