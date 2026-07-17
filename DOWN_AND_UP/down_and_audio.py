@@ -1000,8 +1000,24 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
         def try_download_audio(url, current_index):
             messages = safe_get_messages(message.chat.id)
             nonlocal current_total_process, did_cookie_retry, did_proxy_retry, did_live_from_start_retry, is_hls, is_reverse_order, current_playlist_items_override, use_range_download, range_entries_metadata, unknown_error_message_sent, download_sections
-            # Use format_override if provided, otherwise use default 'ba'
-            download_format = format_override if format_override else 'ba/b'
+            # Platform-specific format selection for audio downloads.
+            # Instagram, Pinterest, TikTok, Facebook only expose combined
+            # video+audio streams -- no audio-only track. Using 'ba' or
+            # 'ba/b' triggers 'Requested format is not available'.
+            # Use 'best' for these so yt-dlp picks the combined stream and
+            # FFmpegExtractAudio strips the audio afterwards.
+            _combined_only_domains = [
+                'instagram.com', 'pinterest.com', 'pin.it',
+                'tiktok.com', 'vm.tiktok.com', 'vt.tiktok.com',
+                'facebook.com', 'fb.watch', 'fb.com',
+            ]
+            _url_lower = url.lower()
+            _is_combined_only = any(d in _url_lower for d in _combined_only_domains)
+            if _is_combined_only:
+                download_format = 'best'
+                logger.info(f'[AUDIO] Combined-only platform detected, using best format: {url}')
+            else:
+                download_format = format_override if format_override else 'ba/b'
             
             # Get user's audio format preference from args_cmd
             from COMMANDS.args_cmd import get_user_ytdlp_args
@@ -2033,7 +2049,17 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                     # We'll create a new ytdl_opts with safe filename and retry
                     try:
                         # Get the same options as in try_download_audio but with safe filename
-                        download_format = format_override if format_override else 'ba/b'
+                        _combined_only_domains2 = [
+                            'instagram.com', 'pinterest.com', 'pin.it',
+                            'tiktok.com', 'vm.tiktok.com', 'vt.tiktok.com',
+                            'facebook.com', 'fb.watch', 'fb.com',
+                        ]
+                        _url_lower2 = url.lower()
+                        _is_combined_only2 = any(d in _url_lower2 for d in _combined_only_domains2)
+                        if _is_combined_only2:
+                            download_format = 'best'
+                        else:
+                            download_format = format_override if format_override else 'ba/b'
                         from COMMANDS.args_cmd import get_user_ytdlp_args
                         user_args = get_user_ytdlp_args(user_id, url)
                         audio_format = user_args.get('audio_format', 'mp3')
