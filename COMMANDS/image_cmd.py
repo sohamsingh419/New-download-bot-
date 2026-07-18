@@ -1850,15 +1850,22 @@ def image_command(app, message):
         # gallery-dl blocks for several seconds before any file appears.
         _spinner_stop_event = threading.Event()
         _SPINNER_FRAMES = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        # Capture chat_id and msg_id now so the closure always has stable values.
+        # Use chat_id (not user_id) because status_msg lives in the chat, which
+        # may be a group where chat_id != user_id.
+        _spinner_chat_id = chat_id
+        _spinner_msg_id = getattr(status_msg, "id", None) if status_msg else None
+        _spinner_base_text = safe_get_messages(user_id).DOWNLOADING_MSG.rstrip()
 
         def _spinner_worker():
+            if not _spinner_msg_id:
+                return  # no status message to animate
             _fi = 0
-            _base = safe_get_messages(user_id).DOWNLOADING_MSG.rstrip()
             while not _spinner_stop_event.is_set():
                 try:
                     safe_edit_message_text(
-                        user_id, status_msg.id,
-                        f"{_base} {_SPINNER_FRAMES[_fi % len(_SPINNER_FRAMES)]}",
+                        _spinner_chat_id, _spinner_msg_id,
+                        f"{_spinner_base_text} {_SPINNER_FRAMES[_fi % len(_SPINNER_FRAMES)]}",
                         parse_mode=enums.ParseMode.HTML,
                     )
                 except Exception:
