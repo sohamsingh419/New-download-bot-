@@ -1844,7 +1844,32 @@ def image_command(app, message):
 
         consecutive_empty_searches = 0  # Counter for consecutive searches with no new files
         max_consecutive_empty_searches = 3  # Exit after 3 consecutive searches with no new files
-        
+
+        # ── Download spinner: animates the status message while gallery-dl runs ────
+        # Gives visual feedback for single-file platforms (Snapchat, etc.) where
+        # gallery-dl blocks for several seconds before any file appears.
+        _spinner_stop_event = threading.Event()
+        _SPINNER_FRAMES = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+
+        def _spinner_worker():
+            _fi = 0
+            _base = safe_get_messages(user_id).DOWNLOADING_MSG.rstrip()
+            while not _spinner_stop_event.is_set():
+                try:
+                    safe_edit_message_text(
+                        user_id, status_msg.id,
+                        f"{_base} {_SPINNER_FRAMES[_fi % len(_SPINNER_FRAMES)]}",
+                        parse_mode=enums.ParseMode.HTML,
+                    )
+                except Exception:
+                    pass
+                _fi += 1
+                _spinner_stop_event.wait(1.5)
+
+        _spinner_thread = threading.Thread(target=_spinner_worker, daemon=True)
+        _spinner_thread.start()
+        # ───────────────────────────────────────────────────────────────────────────
+
         while True:
             # Check total timeout
             total_elapsed = time.time() - total_start_time
@@ -4196,6 +4221,9 @@ def image_command(app, message):
                 logger.info(f"[IMG BATCH] Found {files_found_in_this_search} new files, resetting empty search counter")
 
             time.sleep(0.5)
+
+        # Stop the download spinner now that the loop is done
+        _spinner_stop_event.set()
 
         # Send remaining files in buffer as final album (if any)
         if photos_videos_buffer:
