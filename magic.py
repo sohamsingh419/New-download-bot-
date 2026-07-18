@@ -501,6 +501,7 @@ if __name__ == "__main__":
         app.set_bot_commands([
             BotCommand("start",    "Start the bot"),
             BotCommand("help",     "Show help & info"),
+            Botcommand("lang",     "change your language"),
             BotCommand("settings", "Open bot settings"),
             BotCommand("format",   "Set video quality / format"),
             BotCommand("audio",    "Extract audio only"),
