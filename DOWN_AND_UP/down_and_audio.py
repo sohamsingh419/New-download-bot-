@@ -276,6 +276,7 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
     did_proxy_retry = False
     did_cookie_retry = False
     did_live_from_start_retry = False
+    did_format_retry = False  # retry with bestaudio/best when ba format unavailable
     is_hls = False
     unknown_error_message_sent = False  # Флаг для предотвращения спама сообщений об ошибках
     down_and_audio._error_message_sent = False  # Флаг для предотвращения спама yt-dlp ошибок
@@ -999,7 +1000,7 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
 
         def try_download_audio(url, current_index):
             messages = safe_get_messages(message.chat.id)
-            nonlocal current_total_process, did_cookie_retry, did_proxy_retry, did_live_from_start_retry, is_hls, is_reverse_order, current_playlist_items_override, use_range_download, range_entries_metadata, unknown_error_message_sent, download_sections
+            nonlocal current_total_process, did_cookie_retry, did_proxy_retry, did_live_from_start_retry, did_format_retry, is_hls, is_reverse_order, current_playlist_items_override, use_range_download, range_entries_metadata, unknown_error_message_sent, download_sections
             # Use format_override if provided, otherwise use default 'ba'
             download_format = format_override if format_override else 'ba'
             
@@ -1550,6 +1551,39 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                     logger.error(f"Postprocessing error (Invalid argument): {error_text}")
                     return "POSTPROCESSING_ERROR"
                 
+                # Retry with broader format string when the specific audio-only format
+                # (e.g. "ba") is not available for this platform/URL (e.g. Instagram
+                # Reels that only expose muxed streams).
+                if ("Requested format is not available" in error_text or
+                        "requested format is not available" in error_lower) and not did_format_retry:
+                    did_format_retry = True
+                    logger.info(
+                        f"Format '{download_format}' not available for {url}, "
+                        f"retrying with 'bestaudio/best' format"
+                    )
+                    # Temporarily override format_override so try_download_audio picks up
+                    # the broader selector on next call.
+                    _orig_format_override = format_override
+                    try:
+                        # Patch ytdl_opts format for this retry by using a local variable
+                        # trick: set download_format to broader value inside the call.
+                        import types as _types
+                        _retry_opts = dict(ytdl_opts)
+                        _retry_opts["format"] = "bestaudio/best"
+                        with yt_dlp.YoutubeDL(_retry_opts) as _retry_ydl:
+                            info_dict = _retry_ydl.extract_info(url, download=True)
+                            if info_dict and "entries" in info_dict:
+                                entries = info_dict.get("entries") or []
+                                if entries:
+                                    info_dict = entries[playlist_item_index - 1] if len(entries) >= playlist_item_index else entries[0]
+                            logger.info(f"Format-fallback download succeeded for {url}")
+                            return info_dict
+                    except Exception as _fmt_err:
+                        logger.warning(
+                            f"Format-fallback with bestaudio/best also failed for {url}: {_fmt_err}"
+                        )
+                        # Fall through to normal error handling below
+
                 # Check for --live-from-start error and retry with --no-live-from-start
                 if "--live-from-start is passed, but there are no formats that can be downloaded from the start" in error_text and not did_live_from_start_retry:
                     logger.info(f"Live-from-start error detected for user {user_id}, retrying with --no-live-from-start")
