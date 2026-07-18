@@ -70,8 +70,6 @@ from pyrogram.types import (
 from yt_dlp import YoutubeDL
 import yt_dlp
 from flask import Flask
-import threading
-import os
 
 web_app = Flask(__name__)
 
