@@ -1096,6 +1096,12 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                'live_from_start': True if not did_live_from_start_retry else False,
                'writesubtitles': False,  # Disable subtitles for audio
                'writeautomaticsub': False,  # Disable auto subtitles for audio
+               # Network resilience
+               'retries': 5,
+               'fragment_retries': 10,
+               'file_access_retries': 3,
+               'socket_timeout': 60,
+               'source_address': '0.0.0.0',
             }
             
             # For combined-only platforms force mp4 container on merge so
@@ -1174,6 +1180,11 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
             # Only use ignoreerrors if user explicitly enabled it via /args
             ytdl_opts['ignoreerrors'] = ignore_errors
             
+            # Prevent yt-dlp routing non-playlist URLs through playlist/tab
+            # extractors, which causes 'No videos found in playlist' (#377).
+            if not is_playlist:
+                ytdl_opts['noplaylist'] = True
+
             # Log final yt-dlp options for debugging
             log_ytdlp_options(user_id, ytdl_opts, "audio_download")
             
@@ -2589,8 +2600,8 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                         if proc_msg_id:
                             _start_upload_logging(user_id, proc_msg_id)
                         try:
-                            if file_ext == '.mp3' or file_ext == '.m4a':
-                                # Send as audio for supported formats
+                            if file_ext in ('.mp3', '.m4a', '.opus', '.ogg'):
+                                # Send as audio (Telegram player supports MP3, M4A, OGG/OPUS)
                                 if telegram_thumb and os.path.exists(telegram_thumb):
                                     audio_msg = app.send_audio(
                                         chat_id=user_id, 
@@ -2624,8 +2635,8 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                     if proc_msg_id:
                         _start_upload_logging(user_id, proc_msg_id)
                     try:
-                        if file_ext == '.mp3' or file_ext == '.m4a':
-                            # Send as audio for supported formats
+                        if file_ext in ('.mp3', '.m4a', '.opus', '.ogg'):
+                            # Send as audio (Telegram player supports MP3, M4A, OGG/OPUS)
                             if telegram_thumb and os.path.exists(telegram_thumb):
                                 audio_msg = app.send_audio(
                                     chat_id=user_id, 
