@@ -7302,23 +7302,80 @@ def askq_callback_logic(app, callback_query, data, original_message, url, tags_t
                             logger.info(f"Found duration in format: {duration}")
                             break
             
+            # Fallback 3: check entries list (Instagram Reels sometimes come as a single-entry playlist)
             if not duration or duration <= 0:
-                logger.warning(f"Could not determine video duration for TRIM: url={url}, info_keys={list(info.keys()) if info else 'None'}")
-                error_msg = getattr(safe_get_messages(user_id), 'AA_ERROR_VIDEO_DURATION_UNKNOWN_MSG', "❌ Could not determine video duration. Please try again or use a different video.")
-                app.send_message(
-                    user_id,
-                    error_msg,
-                    reply_parameters=ReplyParameters(message_id=original_message.id),
-                    parse_mode=enums.ParseMode.HTML
-                )
-                return
+                for entry in (info.get("entries") or []):
+                    if entry and entry.get("duration"):
+                        try:
+                            duration = float(entry["duration"])
+                            logger.info(f"Found duration in entries: {duration}")
+                        except Exception:
+                            pass
+                        break
+
+            # Fallback 4: parse duration_string field
+            if not duration or duration <= 0:
+                ds = str(info.get("duration_string") or "").strip()
+                if ds:
+                    try:
+                        parts_ds = ds.split(":")
+                        if len(parts_ds) == 3:
+                            duration = int(parts_ds[0]) * 3600 + int(parts_ds[1]) * 60 + float(parts_ds[2])
+                        elif len(parts_ds) == 2:
+                            duration = int(parts_ds[0]) * 60 + float(parts_ds[1])
+                        else:
+                            duration = float(parts_ds[0])
+                        if duration > 0:
+                            logger.info(f"Found duration via duration_string '{ds}': {duration}")
+                        else:
+                            duration = 0
+                    except Exception:
+                        duration = 0
+
+            # Fallback 5: ffprobe on the first available format URL (works for signed CDN URLs)
+            if not duration or duration <= 0:
+                try:
+                    import subprocess as _sp_trim, json as _json_trim
+                    _probe_url = None
+                    for _fmt in (info.get("formats") or []):
+                        _u = _fmt.get("url", "")
+                        if _u and _u.startswith("http") and "blob:" not in _u:
+                            _probe_url = _u
+                            break
+                    if not _probe_url:
+                        _probe_url = info.get("url", "")
+                    if _probe_url:
+                        _probe = _sp_trim.run(
+                            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                             "-of", "json", _probe_url],
+                            capture_output=True, text=True, timeout=15,
+                            encoding="utf-8", errors="replace"
+                        )
+                        _pd = _json_trim.loads(_probe.stdout or "{}")
+                        _dur = float(_pd.get("format", {}).get("duration", 0) or 0)
+                        if _dur > 0:
+                            duration = _dur
+                            logger.info(f"Found duration via ffprobe on format URL: {duration}")
+                except Exception as _probe_err:
+                    logger.warning(f"ffprobe duration fallback failed: {_probe_err}")
+
+            # If duration is still unknown, use a 24-hour sentinel so the trim can proceed.
+            # validate_timecode_range will accept any range up to 24 h; ffmpeg will stop
+            # naturally at the real video end even if the user enters a later timestamp.
+            _duration_unknown = not duration or duration <= 0
+            if _duration_unknown:
+                logger.info(f"Duration unknown for {url}, using 24h sentinel — trim proceeds without strict bounds check")
+                duration = 86400.0
             
-            # Format duration to HH:MM:SS
-            hours = int(duration // 3600)
-            minutes = int((duration % 3600) // 60)
-            seconds = int(duration % 60)
-            end_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+            # Format duration to HH:MM:SS (or "Unknown" when sentinel is active)
             start_time = "00:00:00"
+            if _duration_unknown:
+                end_time = "Unknown"
+            else:
+                hours = int(duration // 3600)
+                minutes = int((duration % 3600) // 60)
+                seconds = int(duration % 60)
+                end_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
             
             # Save trim state for this user and URL, including original message info
             original_message_id = original_message.id if original_message else None
