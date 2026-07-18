@@ -1000,28 +1000,8 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
         def try_download_audio(url, current_index):
             messages = safe_get_messages(message.chat.id)
             nonlocal current_total_process, did_cookie_retry, did_proxy_retry, did_live_from_start_retry, is_hls, is_reverse_order, current_playlist_items_override, use_range_download, range_entries_metadata, unknown_error_message_sent, download_sections
-            # Platform-specific format selection for audio downloads.
-            # Instagram, Pinterest, TikTok, Facebook only expose combined
-            # video+audio streams -- no audio-only track. Using 'ba' or
-            # 'ba/b' triggers 'Requested format is not available'.
-            # Use 'best' for these so yt-dlp picks the combined stream and
-            # FFmpegExtractAudio strips the audio afterwards.
-            _combined_only_domains = [
-                'instagram.com', 'pinterest.com', 'pin.it',
-                'tiktok.com', 'vm.tiktok.com', 'vt.tiktok.com',
-                'facebook.com', 'fb.watch', 'fb.com',
-            ]
-            _url_lower = url.lower()
-            _is_combined_only = any(d in _url_lower for d in _combined_only_domains)
-            if _is_combined_only:
-                # Prefer mp4 container so ffprobe can always read the codec.
-                # Instagram/TikTok/Facebook sometimes serve HEVC or AV1 in
-                # non-standard containers that ffprobe (and thus FFmpegExtractAudio)
-                # cannot parse.  Falling back to plain 'best' as last resort.
-                download_format = 'best[ext=mp4]/best'
-                logger.info(f'[AUDIO] Combined-only platform detected, using best[ext=mp4]/best format: {url}')
-            else:
-                download_format = format_override if format_override else 'ba/b'
+            # Use format_override if provided, otherwise use default 'ba'
+            download_format = format_override if format_override else 'ba'
             
             # Get user's audio format preference from args_cmd
             from COMMANDS.args_cmd import get_user_ytdlp_args
@@ -1096,23 +1076,7 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                'live_from_start': True if not did_live_from_start_retry else False,
                'writesubtitles': False,  # Disable subtitles for audio
                'writeautomaticsub': False,  # Disable auto subtitles for audio
-               # Network resilience
-               'retries': 5,
-               'fragment_retries': 10,
-               'file_access_retries': 3,
-               'socket_timeout': 60,
-               'source_address': '0.0.0.0',
             }
-            
-            # For combined-only platforms force mp4 container on merge so
-            # ffprobe can always identify the audio codec before extraction.
-            if any(d in url.lower() for d in [
-                'instagram.com', 'pinterest.com', 'pin.it',
-                'tiktok.com', 'vm.tiktok.com', 'vt.tiktok.com',
-                'facebook.com', 'fb.watch', 'fb.com',
-            ]):
-                ytdl_opts['merge_output_format'] = 'mp4'
-                logger.info('[AUDIO] Forcing merge_output_format=mp4 for combined-only platform')
             
             # Add download_sections if trim is enabled
             if download_sections:
@@ -1180,11 +1144,6 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
             # Only use ignoreerrors if user explicitly enabled it via /args
             ytdl_opts['ignoreerrors'] = ignore_errors
             
-            # Prevent yt-dlp routing non-playlist URLs through playlist/tab
-            # extractors, which causes 'No videos found in playlist' (#377).
-            if not is_playlist:
-                ytdl_opts['noplaylist'] = True
-
             # Log final yt-dlp options for debugging
             log_ytdlp_options(user_id, ytdl_opts, "audio_download")
             
@@ -1401,23 +1360,8 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                                 ydl.download([url])
                         return True
                     
-                    # Combined-only platforms (Instagram, Pinterest, TikTok, Facebook)
-                    # have no audio-only streams. Sending them through the proxy
-                    # fallback loop just wastes time and hides the real error.
-                    # Call download_operation directly so the real yt-dlp
-                    # DownloadError is stored in last_download_error and can
-                    # later be re-raised to the detailed error handler.
-                    _combined_audio_domains = [
-                        'instagram.com', 'pinterest.com', 'pin.it',
-                        'tiktok.com', 'vm.tiktok.com', 'vt.tiktok.com',
-                        'facebook.com', 'fb.watch', 'fb.com',
-                    ]
-                    if any(d in url.lower() for d in _combined_audio_domains):
-                        logger.info(f'[AUDIO] Direct download (no proxy) for combined-only platform: {url}')
-                        result = download_operation(ytdl_opts)
-                    else:
-                        from HELPERS.proxy_helper import try_with_proxy_fallback
-                        result = try_with_proxy_fallback(ytdl_opts, url, user_id, download_operation)
+                    from HELPERS.proxy_helper import try_with_proxy_fallback
+                    result = try_with_proxy_fallback(ytdl_opts, url, user_id, download_operation)
                 except Exception as proxy_error:
                     last_download_error = str(proxy_error)
                     result = None
@@ -1429,20 +1373,7 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                         cycle_thread.join(timeout=1)
                 
                 if result is None:
-                    # For combined-only platforms, re-raise the real error as
-                    # DownloadError so the detailed handler at line ~1439 fires
-                    # (gives cookie instructions etc.) instead of the generic
-                    # 'Failed to download video with all available proxies'.
-                    _combined_audio_domains2 = [
-                        'instagram.com', 'pinterest.com', 'pin.it',
-                        'tiktok.com', 'vm.tiktok.com', 'vt.tiktok.com',
-                        'facebook.com', 'fb.watch', 'fb.com',
-                    ]
-                    if any(d in url.lower() for d in _combined_audio_domains2) and last_download_error:
-                        logger.info(f'[AUDIO] Re-raising real error for combined-only platform: {last_download_error[:200]}')
-                        import yt_dlp as _yt_dlp_err
-                        raise _yt_dlp_err.utils.DownloadError(last_download_error)
-                    # Проверяем, является ли это гео-ошибкой YouTube, и пробуем пркси из файла
+                    # Проверяем, является ли это гео-ошибкой YouTube, и пробуем прокси из файла
                     if is_youtube_url(url) and user_id is not None:
                         # Используем последнюю ошибку, если она есть
                         error_to_check = last_download_error if last_download_error else "Failed to download audio with all available proxies"
@@ -1552,26 +1483,37 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                         logger.warning("Thumbnail error detected but cannot verify file existence - letting normal error handling proceed")
                         # Don't return here - let it fall through to normal error handling
                     
-                    # ffprobe codec detection failure -- common for Instagram/TikTok
-                    # reels encoded in HEVC or AV1.  This is a WARNING, not a hard
-                    # error: FFmpeg usually still extracts the audio successfully.
-                    # Check whether the audio file is already on disk; if so, return
-                    # None to let the normal upload path find and send it.  Only fall
-                    # back to POSTPROCESSING_ERROR when no file was produced.
-                    if "unable to obtain file audio codec" in error_lower or "unable to obtain file codec" in error_lower:
-                        logger.warning(f"ffprobe codec detection warning (non-fatal, checking disk): {error_text[:200]}")
+                    # Non-fatal ffprobe codec-detection warning — yt-dlp raises this
+                    # when it cannot determine the audio codec via ffprobe, but the
+                    # file has usually been written to disk successfully.  Treat it as
+                    # a warning and return info_dict so the caller can upload the file.
+                    if "unable to obtain file audio codec" in error_lower or \
+                            "unable to obtain file audio codec with ffprobe" in error_lower:
+                        logger.warning(
+                            f"Non-fatal ffprobe codec warning during audio download "
+                            f"(file likely on disk): {error_text[:200]}"
+                        )
+                        # Check if the file actually landed on disk
+                        _found_on_disk = False
                         try:
                             if os.path.exists(user_folder):
-                                _audio_exts = ('.mp3', '.m4a', '.opus', '.ogg', '.flac', '.wav', '.aac', '.mp4')
-                                _found = [f for f in os.listdir(user_folder) if f.lower().endswith(_audio_exts)]
-                                if _found:
-                                    logger.info(f"Audio file found on disk despite ffprobe warning: {_found[0]} -- proceeding with upload")
-                                    return None  # upload path will pick up the file
-                        except Exception as _disk_e:
-                            logger.debug(f"Disk check after ffprobe warning failed: {_disk_e}")
-                        logger.warning("No audio file on disk after ffprobe warning -- returning POSTPROCESSING_ERROR")
-                        return "POSTPROCESSING_ERROR"
-                    
+                                _disk_files = [
+                                    f for f in os.listdir(user_folder)
+                                    if os.path.isfile(os.path.join(user_folder, f))
+                                    and not f.endswith((".jpg", ".jpeg", ".png", ".webp", ".part", ".ytdl"))
+                                ]
+                                if _disk_files:
+                                    logger.info(
+                                        f"Audio file found on disk despite ffprobe warning: "
+                                        f"{_disk_files[0]} — proceeding with upload"
+                                    )
+                                    _found_on_disk = True
+                        except Exception as _disk_err:
+                            logger.debug(f"Disk check after ffprobe warning failed: {_disk_err}")
+                        if _found_on_disk:
+                            return info_dict  # may be None; caller will search disk
+                        # File not on disk — fall through to normal error handling
+
                     # Check for conversion failed errors (case-insensitive)
                     if "conversion failed" in error_lower:
                         postprocessing_message = (
@@ -2122,17 +2064,7 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                     # We'll create a new ytdl_opts with safe filename and retry
                     try:
                         # Get the same options as in try_download_audio but with safe filename
-                        _combined_only_domains2 = [
-                            'instagram.com', 'pinterest.com', 'pin.it',
-                            'tiktok.com', 'vm.tiktok.com', 'vt.tiktok.com',
-                            'facebook.com', 'fb.watch', 'fb.com',
-                        ]
-                        _url_lower2 = url.lower()
-                        _is_combined_only2 = any(d in _url_lower2 for d in _combined_only_domains2)
-                        if _is_combined_only2:
-                            download_format = 'best'
-                        else:
-                            download_format = format_override if format_override else 'ba/b'
+                        download_format = format_override if format_override else 'ba'
                         from COMMANDS.args_cmd import get_user_ytdlp_args
                         user_args = get_user_ytdlp_args(user_id, url)
                         audio_format = user_args.get('audio_format', 'mp3')
@@ -2600,8 +2532,8 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                         if proc_msg_id:
                             _start_upload_logging(user_id, proc_msg_id)
                         try:
-                            if file_ext in ('.mp3', '.m4a', '.opus', '.ogg'):
-                                # Send as audio (Telegram player supports MP3, M4A, OGG/OPUS)
+                            if file_ext == '.mp3' or file_ext == '.m4a':
+                                # Send as audio for supported formats
                                 if telegram_thumb and os.path.exists(telegram_thumb):
                                     audio_msg = app.send_audio(
                                         chat_id=user_id, 
@@ -2635,8 +2567,8 @@ def down_and_audio(app, message, url, tags, quality_key=None, playlist_name=None
                     if proc_msg_id:
                         _start_upload_logging(user_id, proc_msg_id)
                     try:
-                        if file_ext in ('.mp3', '.m4a', '.opus', '.ogg'):
-                            # Send as audio (Telegram player supports MP3, M4A, OGG/OPUS)
+                        if file_ext == '.mp3' or file_ext == '.m4a':
+                            # Send as audio for supported formats
                             if telegram_thumb and os.path.exists(telegram_thumb):
                                 audio_msg = app.send_audio(
                                     chat_id=user_id, 
