@@ -69,6 +69,21 @@ from pyrogram.types import (
 )
 from yt_dlp import YoutubeDL
 import yt_dlp
+from flask import Flask
+import threading
+import os
+
+web_app = Flask(__name__)
+
+@web_app.route("/")
+def home():
+    return "globalx downloader Bot is alive"
+
+def run_web():
+    port = int(os.environ.get("PORT", 10000))
+    web_app.run(host="0.0.0.0", port=port)
+
+threading.Thread(target=run_web, daemon=True).start()
 
 # Config is now imported from CONFIG.config
 
