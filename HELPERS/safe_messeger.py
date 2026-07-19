@@ -19,6 +19,10 @@ logger = logging.getLogger(__name__)
 _last_message_sent = {}
 _message_send_lock = threading.Lock()
 
+# Per-chat edit flood-wait ban: stores Unix timestamp until which edits are suppressed.
+# Prevents a spinner/loop from hammering Telegram when it already has a multi-hour FloodWait.
+_edit_flood_banned_until: dict = {}
+
 # Get app instance dynamically to avoid None issues
 def get_app_safe():
     messages = safe_get_messages(None)
@@ -327,12 +331,18 @@ def safe_edit_message_text(chat_id, message_id, text, **kwargs):
                 pass
         _last_edit_ts_per_chat[chat_id] = time.time()
 
+    # Skip immediately if a previous FloodWait ban is still active for this chat
+    _ban_until = _edit_flood_banned_until.get(chat_id, 0)
+    if _ban_until > time.time():
+        return None
+
     for attempt in range(max_retries):
         try:
             app = get_app_safe()
             return app.edit_message_text(chat_id, message_id, text, **kwargs)
         except FloodWait as e:
-            # Persist FloodWait info and stop
+            # Record ban expiry so callers don't hammer Telegram during the wait
+            _edit_flood_banned_until[chat_id] = time.time() + e.value
             try:
                 user_dir = os.path.join("users", str(chat_id))
                 os.makedirs(user_dir, exist_ok=True)
@@ -340,7 +350,7 @@ def safe_edit_message_text(chat_id, message_id, text, **kwargs):
                     f.write(str(e.value))
             except Exception:
                 pass
-            logger.warning(f"Flood wait detected ({e.value}s) while editing message for {chat_id}")
+            logger.warning(f"Flood wait detected ({e.value}s) while editing message for {chat_id} — suppressing further edits for {e.value}s")
             return None
         except Exception as e:
             # If message ID is invalid, it means the message was deleted
@@ -378,11 +388,17 @@ def safe_edit_reply_markup(chat_id, message_id, reply_markup=None, **kwargs):
     if '_callback_query' in kwargs:
         kwargs.pop('_callback_query', None)
 
+    # Skip immediately if a previous FloodWait ban is still active for this chat
+    _ban_until = _edit_flood_banned_until.get(chat_id, 0)
+    if _ban_until > time.time():
+        return None
+
     for attempt in range(max_retries):
         try:
             app = get_app_safe()
             return app.edit_message_reply_markup(chat_id, message_id, reply_markup=reply_markup, **kwargs)
         except FloodWait as e:
+            _edit_flood_banned_until[chat_id] = time.time() + e.value
             try:
                 user_dir = os.path.join("users", str(chat_id))
                 os.makedirs(user_dir, exist_ok=True)
@@ -390,7 +406,7 @@ def safe_edit_reply_markup(chat_id, message_id, reply_markup=None, **kwargs):
                     f.write(str(e.value))
             except Exception:
                 pass
-            logger.warning(f"Flood wait detected ({e.value}s) while editing reply markup for {chat_id}")
+            logger.warning(f"Flood wait detected ({e.value}s) while editing reply markup for {chat_id} — suppressing further edits for {e.value}s")
             return None
         except Exception as e:
             if "FLOOD_WAIT" in str(e):
