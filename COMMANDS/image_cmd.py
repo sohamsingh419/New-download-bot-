@@ -990,6 +990,32 @@ def image_command(app, message):
     # Check if user has proxy enabled
     use_proxy = is_proxy_enabled(user_id)
     
+    # If URL is from a yt-dlp-only domain (e.g. video streaming platforms like SonyLiv
+    # that gallery-dl does not support), redirect to the yt-dlp video download flow.
+    try:
+        from urllib.parse import urlparse as _urlparse_ytdlp
+        _ytdlp_hostname = (_urlparse_ytdlp(url).hostname or '').lower()
+        if _ytdlp_hostname.startswith('www.'):
+            _ytdlp_hostname = _ytdlp_hostname[4:]
+        _is_ytdlp_only = any(
+            _ytdlp_hostname == _d or _ytdlp_hostname.endswith('.' + _d)
+            for _d in DomainsConfig.YTDLP_ONLY_DOMAINS
+        )
+        if _is_ytdlp_only:
+            logger.info(f'[IMG] Domain {_ytdlp_hostname} is in YTDLP_ONLY_DOMAINS, '
+                        f'redirecting /img to yt-dlp video flow')
+            from DOWN_AND_UP.down_and_up import down_and_up as _down_and_up_fn
+            _down_and_up_fn(
+                app, message, url,
+                playlist_name=None, video_count=None, video_start_with=None,
+                tags_text=tags_text_norm,
+                use_proxy=use_proxy,
+            )
+            return
+    except Exception as _ytdlp_redirect_err:
+        logger.warning(f'[IMG] YTDLP_ONLY_DOMAINS redirect check failed: {_ytdlp_redirect_err}, '
+                       f'continuing with gallery-dl')
+    
     # Send initial message
     logger.info(f"[IMG STATUS] About to send status message to chat_id={chat_id}, message_thread_id={message_thread_id}")
     status_msg = safe_send_message(
