@@ -98,7 +98,13 @@ class DomainsConfig(object):
     YTDLP_ONLY_DOMAINS = [
         # Video platforms that should only use yt-dlp (no gallery-dl fallback)
         'youtube.com', 'youtu.be', 'm.youtube.com', 'www.youtube.com',
-        'music.youtube.com', 'gaming.youtube.com'
+        'music.youtube.com', 'gaming.youtube.com',
+        # Indian/Asian video streaming platforms (gallery-dl does not support these)
+        'sonyliv.com',
+        'hotstar.com', 'jiocinema.com',
+        'zee5.com', 'voot.com',
+        'mxplayer.in', 'erosnow.com',
+        'altbalaji.com',
     ]
     GALLERYDL_ONLY_DOMAINS = [
         # Imageboards / archives / art communities largely covered by gallery-dl
@@ -140,6 +146,8 @@ class DomainsConfig(object):
         'a-tushar-82q-fef07c6bf20a.herokuapp.com', 'file-to-link-632f24ac9728.herokuapp.com',
         'bilibili.com', 'dailymotion.com', 'sky.com', 'xbox.com', 'youtube.com', 'youtu.be', '1tv.ru', 'x.ai',
         'twitch.tv', 'vimeo.com', 'facebook.com', 'tiktok.com', 'instagram.com', 'fb.com', 'ig.me',
+        'sonyliv.com', 'hotstar.com', 'jiocinema.com', 'zee5.com', 'voot.com',
+        'mxplayer.in', 'erosnow.com', 'altbalaji.com',
         'ahm7tech.vercel.app', 'vz-db5b8c20-711.b-cdn.net', 'b-cdn.net'
         # Other secure domains can be added
     ]
