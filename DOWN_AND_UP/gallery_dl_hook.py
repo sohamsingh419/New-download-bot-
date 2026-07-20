@@ -25,6 +25,16 @@ import tempfile
 
 # ---------- Low-level helpers ----------
 
+def _get_gallery_dl_retries(url: str) -> int:
+    """
+    Always return 0 retries so gallery-dl fails fast on 429
+    instead of waiting Retry-After minutes per attempt.
+    The bot's own error handling (_is_fatal_error) surfaces rate-limit
+    errors to the user immediately.
+    """
+    return 0
+
+
 def get_user_gallery_dl_args(user_id: int) -> dict:
     """
     Get user's yt-dlp arguments that are compatible with gallery-dl
@@ -416,7 +426,7 @@ def get_image_info(url: str, user_id=None, use_proxy: bool = False):
     config = {
         "extractor": {
             "timeout": 30,
-            "retries": 3,
+            "retries": _get_gallery_dl_retries(url),
         },
         "output": {
             "mode": "info",
@@ -579,7 +589,7 @@ def download_image(url: str, user_id=None, use_proxy: bool = False, output_dir: 
     config = {
         "extractor": {
             "timeout": 30,
-            "retries": 3,
+            "retries": _get_gallery_dl_retries(url),
         },
     }
     
@@ -744,7 +754,7 @@ def get_total_media_count(url: str, user_id=None, use_proxy: bool = False) -> in
     cfg = {
         "extractor": {
             "timeout": 30,
-            "retries": 3,
+            "retries": _get_gallery_dl_retries(url),
         }
     }
     cfg = _prepare_user_cookies_and_proxy(url, user_id, use_proxy, cfg)
@@ -913,7 +923,7 @@ def _get_instagram_media_count(url: str, user_id, use_proxy: bool, cfg_path: str
         instagram_config = {
             "extractor": {
                 "timeout": 60,
-                "retries": 3,
+                "retries": 0,
                 "instagram": {
                     "posts": True,
                     "stories": False,
@@ -1041,7 +1051,7 @@ def download_image_range(url: str, range_expr: str, user_id=None, use_proxy: boo
     config = {
         "extractor": {
             "timeout": 30,
-            "retries": 3,
+            "retries": _get_gallery_dl_retries(url),
             "range": range_expr,
         },
     }
@@ -1428,7 +1438,7 @@ def download_image_range_cli(url: str, range_expr: str, user_id=None, use_proxy:
         logger.error(f"Invalid range expression: '{range_expr}'. Expected 'start-end' or 'start-' format.")
         return False
 
-    cfg = {"extractor": {"timeout": 30, "retries": 3}}
+    cfg = {"extractor": {"timeout": 30, "retries": _get_gallery_dl_retries(url)}}
     # Scope outputs to a specific run directory if provided
     if output_dir:
         try:
