@@ -735,8 +735,6 @@ def download_cookie_callback(app, callback_query):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             try:
                 app.answer_callback_query(callback_query.id, safe_get_messages(user_id).COOKIES_FLOOD_LIMIT_MSG, show_alert=False)
             except Exception:

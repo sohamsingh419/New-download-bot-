@@ -125,8 +125,6 @@ def settings_menu_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             try:
                 callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_LIMIT_MSG, show_alert=False)
             except Exception:
@@ -350,8 +348,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             try:
                 callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_LIMIT_MSG, show_alert=False)
             except Exception:
@@ -368,8 +364,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             try:
                 callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_LIMIT_MSG, show_alert=False)
             except Exception:
@@ -386,8 +380,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             try:
                 callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_LIMIT_MSG, show_alert=False)
             except Exception:
@@ -418,8 +410,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_WAIT_ACTIVE_MSG, show_alert=False)
             return
 
@@ -437,8 +427,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_WAIT_ACTIVE_MSG, show_alert=False)
             return
 
@@ -455,8 +443,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_WAIT_ACTIVE_MSG, show_alert=False)
             return
 
@@ -472,8 +458,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_WAIT_ACTIVE_MSG, show_alert=False)
             return
         callback_query.answer(safe_get_messages(user_id).SETTINGS_COMMAND_EXECUTED_MSG)
@@ -501,8 +485,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_WAIT_ACTIVE_MSG, show_alert=False)
             return
 
@@ -518,8 +500,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
 
             try:
                 callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_LIMIT_MSG, show_alert=False)
@@ -545,8 +525,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
 
             try:
                 callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_LIMIT_MSG, show_alert=False)
@@ -565,8 +543,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
 
             try:
                 callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_LIMIT_MSG, show_alert=False)
@@ -618,8 +594,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             try:
                 callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_LIMIT_MSG, show_alert=False)
             except Exception:
@@ -636,8 +610,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             try:
                 callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_LIMIT_MSG, show_alert=False)
             except Exception:
@@ -692,8 +664,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             try:
                 callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_LIMIT_MSG, show_alert=False)
             except Exception:
@@ -711,8 +681,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             try:
                 callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_LIMIT_MSG, show_alert=False)
             except Exception:
@@ -730,8 +698,6 @@ def settings_cmd_callback(app, callback_query: CallbackQuery):
         except FloodWait as e:
             user_dir = os.path.join("users", str(user_id))
             os.makedirs(user_dir, exist_ok=True)
-            with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                f.write(str(e.value))
             try:
                 callback_query.answer(safe_get_messages(user_id).SETTINGS_FLOOD_LIMIT_MSG, show_alert=False)
             except Exception:
