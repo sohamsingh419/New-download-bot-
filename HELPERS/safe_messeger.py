@@ -199,13 +199,6 @@ def safe_send_message(chat_id, text, **kwargs):
             return app.send_message(chat_id, text, **kwargs)
         except FloodWait as e:
             # Write FloodWait seconds to per-user file and do not spin retries for huge waits
-            try:
-                user_dir = os.path.join("users", str(chat_id))
-                os.makedirs(user_dir, exist_ok=True)
-                with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                    f.write(str(e.value))
-            except Exception:
-                pass
             logger.warning(f"Flood wait detected ({e.value}s) while sending message to {chat_id}")
             # Try to fall back to answering the callback (if provided) to give user feedback
             try:
@@ -343,13 +336,6 @@ def safe_edit_message_text(chat_id, message_id, text, **kwargs):
         except FloodWait as e:
             # Record ban expiry so callers don't hammer Telegram during the wait
             _edit_flood_banned_until[chat_id] = time.time() + e.value
-            try:
-                user_dir = os.path.join("users", str(chat_id))
-                os.makedirs(user_dir, exist_ok=True)
-                with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                    f.write(str(e.value))
-            except Exception:
-                pass
             logger.warning(f"Flood wait detected ({e.value}s) while editing message for {chat_id} — suppressing further edits for {e.value}s")
             return None
         except Exception as e:
@@ -399,13 +385,6 @@ def safe_edit_reply_markup(chat_id, message_id, reply_markup=None, **kwargs):
             return app.edit_message_reply_markup(chat_id, message_id, reply_markup=reply_markup, **kwargs)
         except FloodWait as e:
             _edit_flood_banned_until[chat_id] = time.time() + e.value
-            try:
-                user_dir = os.path.join("users", str(chat_id))
-                os.makedirs(user_dir, exist_ok=True)
-                with open(os.path.join(user_dir, "flood_wait.txt"), 'w') as f:
-                    f.write(str(e.value))
-            except Exception:
-                pass
             logger.warning(f"Flood wait detected ({e.value}s) while editing reply markup for {chat_id} — suppressing further edits for {e.value}s")
             return None
         except Exception as e:
