@@ -5000,48 +5000,6 @@ def ask_quality_menu(app, message, url, tags, playlist_start_index=1, cb=None, d
     except Exception as e:
         logger.warning(f"Error cleaning up old format cache files: {e}")
     
-    # Early FloodWait check: if there is a saved waiting time, inform user and try to clear on success
-    try:
-        user_dir = os.path.join("users", str(user_id))
-        flood_time_file = os.path.join(user_dir, "flood_wait.txt")
-        if os.path.exists(flood_time_file):
-            with open(flood_time_file, 'r') as f:
-                try:
-                    wait_time = int(f.read().strip())
-                except Exception:
-                    wait_time = None
-            if wait_time is not None:
-                hours = wait_time // 3600
-                minutes = (wait_time % 3600) // 60
-                seconds = wait_time % 60
-                time_str = f"{hours}h {minutes}m {seconds}s"
-                proc_msg = app.send_message(user_id, safe_get_messages(user_id).RATE_LIMIT_WITH_TIME_MSG.format(time=time_str))
-            else:
-                proc_msg = app.send_message(user_id, safe_get_messages(user_id).RATE_LIMIT_NO_TIME_MSG)
-            try:
-                app.edit_message_text(chat_id=user_id, message_id=proc_msg.id, text=safe_get_messages(user_id).DOWNLOAD_STARTED_MSG, parse_mode=enums.ParseMode.HTML)
-                try:
-                    from HELPERS.safe_messeger import schedule_delete_message
-                    schedule_delete_message(user_id, proc_msg.id, delete_after_seconds=5)
-                except Exception:
-                    pass
-                if os.path.exists(flood_time_file):
-                    os.remove(flood_time_file)
-            except FloodWait as e:
-                # Keep/refresh timer and exit early
-                try:
-                    os.makedirs(user_dir, exist_ok=True)
-                    with open(flood_time_file, 'w') as f:
-                        f.write(str(e.value))
-                except Exception:
-                    pass
-                return
-            except Exception:
-                return
-            # If edit succeeded, proceed as usual (no flood)
-            proc_msg = None
-    except Exception:
-        pass
     found_type = None
     # Clean the cache of subtitles only on initial open (when no callback provided).
     # On filter toggles (when cb is not None), we KEEP the cache to avoid re-fetching subtitles.
@@ -6918,32 +6876,8 @@ def ask_quality_menu(app, message, url, tags, playlist_start_index=1, cb=None, d
                     app.send_message(user_id, cap, parse_mode=enums.ParseMode.HTML, reply_parameters=ReplyParameters(message_id=message.id))
         send_to_logger(message, safe_get_messages(user_id).ALWAYS_ASK_MENU_SENT_LOG_MSG.format(url=url))
     except FloodWait as e:
-        wait_time = e.value
-        user_dir = os.path.join("users", str(user_id))
-        create_directory(user_dir)
-        flood_time_file = os.path.join(user_dir, "flood_wait.txt")
-        with open(flood_time_file, 'w') as f:
-            f.write(str(wait_time))
-        hours = wait_time // 3600
-        minutes = (wait_time % 3600) // 60
-        seconds = wait_time % 60
-        time_str = f"{hours}h {minutes}m {seconds}s"
-        flood_msg = safe_get_messages(user_id).AA_FLOOD_WAIT_MSG.format(time_str=time_str)
-        if proc_msg:
-            try:
-                app.edit_message_text(chat_id=user_id, message_id=proc_msg.id, text=flood_msg)
-            except Exception as e:
-                if 'MESSAGE_ID_INVALID' not in str(e):
-                    logger.warning(f"Failed to edit message: {e}")
-            proc_msg = None
-        else:
-            try:
-                app.send_message(user_id, flood_msg, reply_parameters=ReplyParameters(message_id=message.id))
-            except FloodWait:
-                # Невозможно отправить даже уведомление о FloodWait — просто выходим, время уже сохранено
-                pass
-            except Exception as e:
-                logger.warning(f"Failed to send flood notice: {e}")
+        logger.warning("FloodWait %ds while sending" % e.value)
+        time.sleep(min(e.value, 30))
         return
     except Exception as e:
         import traceback
