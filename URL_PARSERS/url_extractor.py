@@ -1201,7 +1201,20 @@ def url_distractor(app, message):
                                 logger.info(f"URL_EXTRACTOR: blocking blacklisted domain '{black_item}' for URL '{raw_url}'")
                                 send_error_to_user(message, safe_get_messages(user_id).PORN_CONTENT_CANNOT_DOWNLOAD_MSG, url=raw_url)
                                 return
-                
+
+                # YouTube videos and Shorts are temporarily not supported
+                if raw_url:
+                    from URL_PARSERS.youtube import is_youtube_url
+                    if is_youtube_url(raw_url):
+                        logger.info(f"URL_EXTRACTOR: YouTube URL blocked (feature disabled): {raw_url}")
+                        yt_msg = (
+                            "⚠️  At the moment, our bot does not support downloading YouTube videos or Shorts.\n\n"
+                            "We\'re working on bringing this feature in a future update. Thank you for your patience!\n\n"
+                            "Stay updated with us: @Globall_X"
+                        )
+                        safe_send_message(user_id, yt_msg, message=message)
+                        return
+
                 parsed = urlparse(raw_url)
                 path_lower = (parsed.path or "").lower()
 
